@@ -1,0 +1,689 @@
+
+<!--mixin PublicationItem(wrap_type,wrap_path,project_link,link1,link2,link3,title,abstract, ...contents)-->
+<!--mixin MiscellaneousItem(title,link, ...contents)--><!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Photography & Imaging  (&#960) Research Group</title>
+        <!-- Favicons-->
+        <link rel="shortcut icon" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+        <!-- Web Fonts-->
+        <link href="assets/css/googleapis-font.css" rel="stylesheet">
+        <!--link(href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet")-->
+        <!--link(href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")-->
+        <!-- Plugins-->
+        <link href="assets/css/plugins.min.css" rel="stylesheet">
+        <!-- Template core CSS-->
+        <link href="assets/css/template.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- Preloader-->
+        <div class="page-loader">
+            <div class="page-loader-inner">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader end-->
+
+        <!-- Header-->
+        <header class="header header-transparent">
+            <div class="container-fluid">
+                <!-- LOGO-->
+                <div class="inner-header">
+                    <!--img(src='assets/images/logo.jpg')--><img src="assets/images/Pi_logo_final.png">
+                </div>
+                <!-- Navigation-->
+                <div class="inner-navigation collapse">
+                    <div class="inner-nav onepage-nav">
+                        <ul>
+                            <li><a href="index.html"><span class="menu-item-span">Home</span></a></li>
+                            <li><a href="people.html"><span class="menu-item-span">People</span></a></li>
+                            <li><a href="research.html"><span class="menu-item-span">Research</span></a></li>
+                            <li><a href="publications.html"><span class="menu-item-span">Publications</span></a></li>
+                            <li><a href="joinus.html"><span class="menu-item-span">Join Us</span></a></li>
+                            <li><a href="achievement.html"><span class="menu-item-span">Achievement</span></a></li>
+                            <li><a href="miscellaneous.html"><span class="menu-item-span">Miscellaneous</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="extra-nav">
+                    <ul>
+                        <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!-- Header end-->
+
+        <!-- Wrapper-->
+        <div class="wrapper">
+            <!-- Hero-->
+            <section class="module-cover-slides text-center">
+                <!--.parallax.text-center.fullscreen.container.text-wrapper-->
+                <div class="container text-wrapper parallax"> 
+                    <!--.row.parallax.text-center.text-wrapper-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>&#960: Photography &amp  Imaging </strong></h1>
+                            <h1 class="m-b-20"><strong>Research Group </strong></h1>
+                            <p class="m-b-40">&#960  Research Group @ Nankai University  <br> &#960 was formed in 2023, with a research focus on low-level vision. The group works closely with <a href="https://www.mmlab-ntu.com/">MMLab@NTU</a> and <a href="https://mmcheng.net/">TMCC@Nankai</a>. The foundation of &#960 can be tracked back to the collabration between Dr. Chongyi and Dr. Chunle during their time as students at Tianjin University, where they experienced memorable moments. &#960 is a new research group and always looking for motivated Master students, PhD students, postdocs, reseach assistants. We are open to collaborate with academia and industry.</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="slides-container">
+                    <li data-overlay="0.6"><img src="assets/images/index1.jpg" alt=""></li>
+                    <li data-overlay="0.6"><img src="assets/images/index2.jpg" alt=""></li>
+                    <li data-overlay="0.6"><img src="assets/images/index3.jpg" alt=""></li>
+                </ul>
+            </section>
+            <!-- Hero end-->
+
+            <!-- Recent Projects-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-9 m-auto text-center">
+                            <h2><strong>Recent Projects</strong></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="space" data-MY="60px"></div>
+                        </div>
+                    </div>
+                    <div class="row row-post-thumbnail">
+                        <!-- stars图片 https://img.shields.io/github/stars/RQ-Wu/RIDCP_dehazing?style=social 格式：https://img.shields.io/github/stars/{user}/{repo}?style=social-->
+                        <!-- forks图片 https://img.shields.io/github/forks/RQ-Wu/RIDCP_dehazing?style=social 格式：https://img.shields.io/github/forks/{user}/{repo}?style=social-->
+                        <!-- 内容分别为 ["封面类型（video/img）,""封面地址","标题","项目链接（点击封面和标题可达）","图标1链接","图标2链接","图标3链接","stars图片链接","forks图片链接","简介","作者列表","期刊会议列表"]-->
+
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://zhexinliang.github.io/CLIP_LIT_page/"><video src="assets/video/CLIP-LIT_video.mp4" type="video/mp4" width="100%" controls autoplay="autoplay" loop muted></video></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://zhexinliang.github.io/CLIP_LIT_page/">Iterative Prompt Learning for Unsupervised Backlit Image Enhancement</a></h2>
+                                                <div class="project-meta">Zhexin Liang, Chongyi Li, Shangchen Zhou, Ruicheng Feng, and Chen Change Loy</div>
+                                                <div class="project-published">ICCV 2023 (Oral)</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://zhexinliang.github.io/CLIP_LIT_page/"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/ZhexinLiang/CLIP-LIT?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/ZhexinLiang/CLIP-LIT?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href=""><video src="assets/video/ProPainter_demo.mp4" type="video/mp4" width="100%" controls autoplay="autoplay" loop muted></video></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="">ProPainter: Improving Video Inpainting with Enhanced Propagation and Efficient Transformer</a></h2>
+                                                <div class="project-meta">Shangchen Zhou, Chongyi Li, Kelvin C.K. Chan, and Chen Change Loy</div>
+                                                <div class="project-published">ICCV 2023</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://shangchenzhou.com/projects/ProPainter/"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/sczhou/ProPainter?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/sczhou/ProPainter?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>                        
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://github.com/Srameo/LED"><img src="assets/video/LED_video_demo.gif" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://github.com/Srameo/LED">Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising</a></h2>
+                                                <div class="project-meta">Xin Jin, Jiawen Xiao, Linghao Han, Chunle Guo, Ruixuan Zhang, Xialei Liu, and Chongyi Li</div>
+                                                <div class="project-published">ICCV 2023</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://github.com/Srameo/LED"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/Srameo/LED?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/Srameo/LED?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>                        
+                        
+                      
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href=""><img src="assets/images/blog/IQAICCV_logo.png" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="">Troubleshooting Ethnic Quality Bias with Curriculum Domain Adaptation for Face Image Quality Assessment</a></h2>
+                                                <div class="project-meta">Fuzhao Ou, Baoliang Chen, Chongyi Li, Shiqi Wang, and Sam Kwong</div>
+                                                <div class="project-published">ICCV 2023</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href=""><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src=""></li>
+                                                    <li><img src=""></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div> 
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://ykdai.github.io/projects/BracketFlare"><img src="assets/images/blog/BracketFlare_logo.png" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://ykdai.github.io/projects/BracketFlare">Nighttime Smartphone Reflective Flare Removal Using Optical Center Symmetry Prior</a></h2>
+                                                <div class="project-meta">Yuekun Dai, Yihang Luo, Shangchen Zhou, Chongyi Li, and Chen Change Loy</div>
+                                                <div class="project-published">CVPR 2023 (Highlight)</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://ykdai.github.io/projects/BracketFlare"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/ykdai/BracketFlare?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/ykdai/BracketFlare?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://github.com/Srameo/DNF"><img src="assets/images/research/DNF.gif" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://github.com/Srameo/DNF">DNF: Decouple and Feedback Network for Seeing in the Dark</a></h2>
+                                                <div class="project-meta">Xin Jin, Linghao Han, Zhen Li, Zhi Chai, Chunle Guo, and Chongyi Li</div>
+                                                <div class="project-published">CVPR 2023 (Highlight)</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://github.com/Srameo/DNF"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/Srameo/DNF?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/Srameo/DNF?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://rq-wu.github.io/projects/RIDCP/index.html">
+                                                <video src="assets/video/RIDCP_video.mp4" type="video/mp4" width="100%" controls autoplay="autoplay" loop muted></video></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://rq-wu.github.io/projects/RIDCP/index.html">RIDCP: Revitalizing Real Image Dehazing via High-Quality Codebook Priors</a></h2>
+                                                <div class="project-meta">Ruiqi Wu, Zhengpeng Duan, Chunle Guo, Zhi Chai, and Chongyi Li</div>
+                                                <div class="project-published">CVPR 2023</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p>  </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://rq-wu.github.io/projects/RIDCP/index.html"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/RQ-Wu/RIDCP_dehazing?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/RQ-Wu/RIDCP_dehazing?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://jnjaby.github.io/projects/AlignFormer/"><img src="assets/images/blog/AlignFormer_logo.png" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://jnjaby.github.io/projects/AlignFormer/">Generating Aligned Pseudo-Supervision from Non-Aligned Data for Image Restoration in Under-Display Camera</a></h2>
+                                                <div class="project-meta">Ruicheng Feng, Chongyi Li, Huaijin Chen, Shuai Li, Jinwei Gu, and Chen Change Loy</div>
+                                                <div class="project-published">CVPR 2023</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://jnjaby.github.io/projects/AlignFormer/"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/jnjaby/AlignFormer?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/jnjaby/AlignFormer?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://github.com/langmanbusi/Semantic-Aware-Low-Light-Image-Enhancement"><img src="assets/images/blog/SKF_logo.png" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://github.com/langmanbusi/Semantic-Aware-Low-Light-Image-Enhancement">Learning Semantic-Aware Knowledge Guidance for Low-Light Image Enhancement</a></h2>
+                                                <div class="project-meta">Yuhui Wu, Chen Pan, Guoqing Wang, Yang Yang, Jiwei Wei, Chongyi Li, and Hengtao Shen</div>
+                                                <div class="project-published">CVPR 2023</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://github.com/langmanbusi/Semantic-Aware-Low-Light-Image-Enhancement"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/langmanbusi/Semantic-Aware-Low-Light-Image-Enhancement?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/langmanbusi/Semantic-Aware-Low-Light-Image-Enhancement?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div> 
+                       
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://li-chongyi.github.io/UHDFour/"><img src="assets/images/blog/UDHFour_logo.png" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://li-chongyi.github.io/UHDFour/">Embedding Fourier for Ultra-High-Definition Low-Light Image Enhancement</a></h2>
+                                                <div class="project-meta">Chongyi Li, Chunle Guo, Man Zhou, Zhexin Liang, Shangchen Zhou, Ruicheng Feng, and Chen Change Loy</div>
+                                                <div class="project-published">ICLR 2023 (Oral)</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://li-chongyi.github.io/UHDFour/"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/Li-Chongyi/UHDFour_code?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/Li-Chongyi/UHDFour_code?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href=" "><img src="assets/images/blog/Fourmer_logo.png" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href=" ">Fourmer: An Efficient Global Modeling Paradigm for Image Restoration</a></h2>
+                                                <div class="project-meta">Man Zhou, Jie Huang, Chunle Guo, and Chongyi Li</div>
+                                                <div class="project-published">ICML 2023 (Oral)</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://icml.cc/virtual/2023/oral/25538"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src=" "></li>
+                                                    <li><img src=" "></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Post-->
+                            <article class="project">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5">
+                                        <div class="project-preview"><a href="https://li-chongyi.github.io/URanker_files/"><img src="assets/images/blog/URanke_logor.png" alt=""></a></div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="project-wrapper">
+                                            <div class="project-header">
+                                                <h2 class="project-title"><a href="https://li-chongyi.github.io/URanker_files/">Underwater Ranker: Learn Which Is Better and How to Be Better</a></h2>
+                                                <div class="project-meta">Chunle Guo, Ruiqi Wu, Xin Jin, Linghao Han, Zhi Chai, Weidong Zhang, and Chongyi Li</div>
+                                                <div class="project-published">AAAI 2023 (Oral)</div>
+                                            </div>
+                                            <div class="project-content">
+                                                <p> </p>
+                                            </div>
+                                            <div class="project-footer">
+                                                <ul>
+                                                    <li><a href="https://li-chongyi.github.io/URanker_files/"><i class="fa fa-home"></i></a></li>
+                                                    <!--li: a(href=link3) #[i.fab.fa-google]-->
+                                                    <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
+                                                    <li><img src="https://img.shields.io/github/stars/RQ-Wu/UnderwaterRanker?style=social"></li>
+                                                    <li><img src="https://img.shields.io/github/forks/RQ-Wu/UnderwaterRanker?style=social"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Post end-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Projects end-->
+            <!-- News-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-9 m-auto text-center">
+                            <h2><strong>News</strong></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="space" data-MY="60px"></div>
+                        </div>
+                    </div>
+                    <!--.row.content-more-->
+                    <!--    h5 #[a(href="news.html"): strong MORE]-->
+                    <div class="row">
+                        <!-- 内容分别为 ["日","年-月","新闻标题","内容第一段","内容第二段"]-->
+
+                        <div class="col-md-12">
+                            <div class="d-flex flex-row news-wrapper">
+                                <div class="news-icon">
+                                    <p class="day"> </p>
+                                    <p class="ym">2023-04</p>
+                                </div>
+                                <div class="news-title">
+                                    <h6>   </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <!--+NewsItem("05","2023-04","We alskjfi zxlkjvoqwea lxvwoeij lasldfoi lskavsioowe oalskdnfowijer zkldfaei o.")-->
+                        <!--+NewsItem("05","2023-04","这是一个会自动换行的title 这是一个会自动换行的title 这是一个会自动换行的title 这是一个会自动换行的title 这是一个会自动换行的title 这是一个会自动换行的title 这是一个会自动换行的title")-->
+                    </div>
+                </div>
+            </section>
+
+            <!-- News end-->
+            <!-- Events-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-9 m-auto text-center">
+                            <h2><strong>Events</strong></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="space" data-MY="60px"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 m-auto">
+                            <div class="owl-carousel portfolio-carousel">
+                                <!-- 内容分别为 ["封面","活动标题","链接地址"]-->
+                                <div class="portfolio-item">
+                                    <div class="portfolio-item-wrapper">
+                                        <div class="portfolio-item-img"><img src="assets/images/widgets/1.jpg" alt=""></div>
+                                        <div class="portfolio-item-caption">
+                                            <h6 class="portfolio-item-title"></h6>
+                                        </div><a class="portfolio-item-link" href=""></a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-item">
+                                    <div class="portfolio-item-wrapper">
+                                        <div class="portfolio-item-img"><img src="assets/images/widgets/1.jpg" alt=""></div>
+                                        <div class="portfolio-item-caption">
+                                            <h6 class="portfolio-item-title"></h6>
+                                        </div><a class="portfolio-item-link" href=""></a>
+                                    </div>
+                                </div>
+                                <!--+EventItem("assets/images/event1.jpg", "Ellie Cashman", "#")-->
+                                <!--+EventItem("assets/images/event1.jpg", "Solave Cleanser", "#")-->
+                                <!--+EventItem("assets/images/event1.jpg", "Monochrome", "#")-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- Footer-->
+            <footer class="footer">
+                <div class="footer-widgets">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 footer-nav">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="people.html">People</a></li>
+                                    <li><a href="research.html">Research</a></li>
+                                    <li><a href="publications.html">Publications</a></li>
+                                    <li><a href="joinus.html">Join Us</a></li>
+                                    <li><a href="achievement.html">Achievement </a></li>
+                                    <li><a href="miscellaneous.html">Miscellaneous</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 footer-image">
+                                <!--img(src="assets/images/logo.jpg" alt="")--><img src="assets/images/" alt="">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="30px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p> &#960 Research Group Location: Nankai University</p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="30px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Contact :<a href="#"> lichongyi@nankai.edu.cn</a></p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="40px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <!--p © 2018 Boomerang, All Rights Reserved. Design with love by #[a(href="#") 2theme]-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer end-->
+        </div>
+        <!-- Wrapper end-->
+        <!-- Off canvas-->
+        <div class="off-canvas-sidebar">
+            <div class="off-canvas-sidebar-wrapper">
+                <div class="off-canvas-header"><a class="off-canvas-close" href="#"><span class="ti-close"></span></a></div>
+                <div class="off-canvas-content">
+                    <!-- Text widget-->
+                    <aside class="widget widget-text">
+                        <div class="textwidget">
+                            <p class="text-center"><img src="assets/images/logo-light-2.png" alt="" width="80px"></p>
+                            <p class="text-center">See how users experience your website in realtime to see changes.</p>
+                        </div>
+                    </aside>
+                    <!-- Recent portfolio widget-->
+                    <aside class="widget widget-recent-works">
+                        <ul>
+                            <li><a href="#"><img src="assets/images/widgets/1.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/2.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/3.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/4.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/5.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/6.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/7.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/8.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="assets/images/widgets/9.jpg" alt=""></a></li>
+                        </ul>
+                    </aside>
+                    <!-- Social Icons-->
+                    <ul class="social-icons text-center">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Off canvas end-->
+
+        <!-- To top button--><a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
+
+        <!-- Scripts-->
+        <script src="assets/js/custom/jquery.min.js"></script>
+        <script src="assets/js/custom/popper.min.js"></script>
+        <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <!--script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q")-->
+        <script src="assets/js/custom/plugins.min.js"></script>
+        <script src="assets/js/custom/custom.min.js"></script>
+        <script src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
+    </body>
+</html>
