@@ -3,6 +3,11 @@
 <!--mixin MiscellaneousItem(title,link, ...contents)--><!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Performance: preconnect to third-party origins -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+        <link rel="dns-prefetch" href="https://img.shields.io">
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -40,7 +45,7 @@
             <div class="container-fluid">
                 <!-- LOGO-->
                 <div class="inner-header">
-                    <!--img(src='assets/images/logo.jpg')--><img src="assets/images/Pi_logo_final.png">
+                    <!--img(src='assets/images/logo.jpg')--><img src="assets/images/Pi_logo_final.webp">
                 </div>
                 <!-- Navigation-->
                 <div class="inner-navigation collapse">
@@ -81,8 +86,8 @@
                     </div>
                 </div>
                 <ul class="slides-container">
-                    <li data-overlay="0.6"><img src="assets/images/index1.jpg" alt=""></li>
-                    <li data-overlay="0.6"><img src="assets/images/index2.jpg" alt=""></li>
+                    <li data-overlay="0.6"><img src="assets/images/index1.webp" alt=""></li>
+                    <li data-overlay="0.6"><img loading="lazy" src="assets/images/index2.webp" alt=""></li>
                 </ul>
             </section>
             <!-- Hero end-->
@@ -110,7 +115,7 @@
                             <article class="project">
                                 <div class="row align-items-center">
                                     <div class="col-md-5">
-                                        <div class="project-preview"><a href="https://shh-han.github.io/EvalMuse-project/"><img src="assets/images/blog/EvalMuse-40k_logo.png" alt=""></a></div>
+                                        <div class="project-preview"><a href="https://shh-han.github.io/EvalMuse-project/"><img loading="lazy" src="assets/images/blog/EvalMuse-40k_logo.webp" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="project-wrapper">
@@ -143,7 +148,7 @@
                             <article class="project">
                                 <div class="row align-items-center">
                                     <div class="col-md-5">
-                                        <div class="project-preview"><a href="https://srameo.github.io/projects/ultraled/"><img src="assets/images/blog/UltraLED_logo.png" alt=""></a></div>
+                                        <div class="project-preview"><a href="https://srameo.github.io/projects/ultraled/"><img loading="lazy" src="assets/images/blog/UltraLED_logo.webp" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="project-wrapper">
@@ -176,7 +181,7 @@
                             <article class="project">
                                 <div class="row align-items-center">
                                     <div class="col-md-5">
-                                        <div class="project-preview"><a href="https://github.com/WeChatCV/Stand-In"><img src="assets/images/blog/Stand_in_logo.png" alt=""></a></div>
+                                        <div class="project-preview"><a href="https://github.com/WeChatCV/Stand-In"><img loading="lazy" src="assets/images/blog/Stand_in_logo.webp" alt=""></a></div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="project-wrapper">
@@ -272,7 +277,7 @@
                                 <!-- 内容分别为 ["封面","活动标题","链接地址"]-->
                                 <div class="portfolio-item">
                                     <div class="portfolio-item-wrapper">
-                                        <div class="portfolio-item-img"><img src="assets/images/widgets/MIPI2025.png" alt=""></div>
+                                        <div class="portfolio-item-img"><img loading="lazy" src="assets/images/widgets/MIPI2025.webp" alt=""></div>
                                         <div class="portfolio-item-caption">4th Mobile Intelligent Photography and Imaging (MIPI)@ICCV 2025, Honolulu, Hawaii
                                             <h6 class="portfolio-item-title"></h6>
                                         </div><a class="portfolio-item-link" href="https://mipi-challenge.org/MIPI2025/"></a>
@@ -354,22 +359,22 @@
                     <!-- Text widget-->
                     <aside class="widget widget-text">
                         <div class="textwidget">
-                            <p class="text-center"><img src="assets/images/logo-light-2.png" alt="" width="80px"></p>
+                            <p class="text-center"><img src="assets/images/logo-light-2.webp" alt="" width="80px"></p>
                             <p class="text-center">See how users experience your website in realtime to see changes.</p>
                         </div>
                     </aside>
                     <!-- Recent portfolio widget-->
                     <aside class="widget widget-recent-works">
                         <ul>
-                            <li><a href="#"><img src="assets/images/widgets/1.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/2.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/3.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/4.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/5.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/6.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/7.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/8.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="assets/images/widgets/9.jpg" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/1.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/2.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/3.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/4.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/5.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/6.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/7.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/8.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/9.webp" alt=""></a></li>
                         </ul>
                     </aside>
                     <!-- Social Icons-->
@@ -387,12 +392,12 @@
         <!-- To top button--><a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
 
         <!-- Scripts-->
-        <script src="assets/js/custom/jquery.min.js"></script>
-        <script src="assets/js/custom/popper.min.js"></script>
-        <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <script defer src="assets/js/custom/jquery.min.js"></script>
+        <script defer src="assets/js/custom/popper.min.js"></script>
+        <script defer src="assets/js/bootstrap/bootstrap.min.js"></script>
         <!--script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q")-->
-        <script src="assets/js/custom/plugins.min.js"></script>
-        <script src="assets/js/custom/custom.min.js"></script>
-        <script src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
+        <script defer src="assets/js/custom/plugins.min.js"></script>
+        <script defer src="assets/js/custom/custom.min.js"></script>
+        <script defer src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
     </body>
 </html>

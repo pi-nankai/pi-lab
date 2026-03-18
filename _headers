@@ -1,0 +1,23 @@
+# Netlify / Cloudflare Pages 静态资源缓存配置
+# 由性能优化脚本自动生成
+
+# 静态资源（图片、字体、JS、CSS）- 1年缓存
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML 页面 - 短缓存（允许更新）
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# 根目录 HTML
+/
+  Cache-Control: public, max-age=3600, must-revalidate
