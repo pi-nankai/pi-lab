@@ -15067,8 +15067,8 @@ body.off-canvas-sidebar-open:after {
 }
 
 .row-publications-masonry .publications-header .publications-title {
-    font-size: 1.375rem;
-    margin-bottom: 14px;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
 }
 
 .row-publications-thumbnail .publications-header .publications-title {
@@ -15086,7 +15086,7 @@ body.off-canvas-sidebar-open:after {
 
 .publications-meta {
     list-style: none;
-    font-size: .8125rem;
+    font-size: 1rem;
     color: #a3a6a8;
     padding: 0;
     margin: 0;
