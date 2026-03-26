@@ -1,0 +1,239 @@
+/* ============================================
+   π Lab — Page Loading Progress
+   ============================================ */
+
+/* 覆盖原有 page-loader 样式 */
+.page-loader {
+    background: #0a0c1a !important;
+    position: fixed !important;
+    height: 100% !important;
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 99999 !important;
+    opacity: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.page-loader.fade-out {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+/* 隐藏原有 spinner */
+.page-loader .spinner,
+.page-loader .double-bounce1,
+.page-loader .double-bounce2,
+.page-loader-inner {
+    display: none !important;
+}
+
+/* ---- 背景粒子装饰 ---- */
+.pi-loader-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.pi-loader-bg::before {
+    content: '';
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(80, 92, 253, 0.22) 0%, transparent 70%);
+    top: -150px;
+    left: -150px;
+    animation: pi-glow-drift 8s ease-in-out infinite alternate;
+}
+
+.pi-loader-bg::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(120, 80, 253, 0.18) 0%, transparent 70%);
+    bottom: -100px;
+    right: -100px;
+    animation: pi-glow-drift 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pi-glow-drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(40px, 30px) scale(1.1); }
+}
+
+/* ---- 主容器 ---- */
+.pi-loader-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    width: 360px;
+}
+
+/* ---- Logo / π 符号 ---- */
+.pi-loader-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: pi-logo-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pi-logo-in {
+    from { opacity: 0; transform: translateY(-20px) scale(0.8); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pi-loader-symbol {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, #505cfd 0%, #a78bfa 50%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(80, 92, 253, 0.6));
+    font-family: 'Georgia', serif;
+}
+
+.pi-loader-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pi-loader-title-main {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.pi-loader-title-sub {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'Helvetica Neue', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ---- 进度条区域 ---- */
+.pi-loader-progress-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: pi-bar-in 0.6s 0.2s ease both;
+}
+
+@keyframes pi-bar-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 进度条轨道 */
+.pi-loader-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 进度条填充 */
+.pi-loader-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #505cfd, #a78bfa, #60a5fa);
+    background-size: 200% 100%;
+    transition: width 0.3s ease;
+    position: relative;
+    animation: pi-shimmer 2s linear infinite;
+}
+
+@keyframes pi-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+/* 进度条光晕 */
+.pi-loader-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(167, 139, 250, 0.6);
+    filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pi-loader-fill.active::after {
+    opacity: 1;
+}
+
+/* 进度数字 */
+.pi-loader-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pi-loader-percent {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    min-width: 40px;
+}
+
+.pi-loader-status {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* ---- 底部点状装饰 ---- */
+.pi-loader-dots {
+    display: flex;
+    gap: 6px;
+    animation: pi-bar-in 0.6s 0.4s ease both;
+}
+
+.pi-loader-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(80, 92, 253, 0.5);
+    animation: pi-dot-pulse 1.4s ease-in-out infinite;
+}
+
+.pi-loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.pi-loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+.pi-loader-dots span:nth-child(4) { animation-delay: 0.6s; }
+.pi-loader-dots span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes pi-dot-pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.5); background: #a78bfa; }
+}
