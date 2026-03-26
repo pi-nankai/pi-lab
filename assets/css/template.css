@@ -14857,6 +14857,9 @@ body.off-canvas-sidebar-open:after {
 
 .person-preview img {
     border-radius: .1875rem;
+    max-width: 260px;
+    display: block;
+    margin: 0 auto;
 }
 
 .row-person-thumbnail .person-preview {
@@ -15067,8 +15070,8 @@ body.off-canvas-sidebar-open:after {
 }
 
 .row-publications-masonry .publications-header .publications-title {
-    font-size: 1.05rem;
-    margin-bottom: 10px;
+    font-size: 0.875rem;
+    margin-bottom: 8px;
 }
 
 .row-publications-thumbnail .publications-header .publications-title {
@@ -15086,7 +15089,7 @@ body.off-canvas-sidebar-open:after {
 
 .publications-meta {
     list-style: none;
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: #a3a6a8;
     padding: 0;
     margin: 0;
