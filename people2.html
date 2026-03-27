@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="People - Photography & Imaging Research Group">
+        <title>People | Photography &amp; Imaging (&#960;) Research Group</title>
+        <!-- Favicons-->
+        <link rel="shortcut icon" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+        <!-- Web Fonts-->
+        <link href="assets/css/googleapis-font.css" rel="stylesheet">
+        <!-- Plugins-->
+        <link href="assets/css/plugins.min.css" rel="stylesheet">
+        <!-- Template core CSS-->
+        <link href="assets/css/template.css" rel="stylesheet">
+        <!-- Loader CSS-->
+        <link href="assets/css/pi-loader.css" rel="stylesheet">
+        <!-- People2 custom CSS-->
+        <style>
+            /* ===== PEOPLE2 PAGE STYLES ===== */
+
+            /* Section spacing */
+            .people2-section {
+                padding: 80px 0 60px;
+            }
+            .people2-section + .people2-section {
+                padding-top: 20px;
+            }
+
+            /* Section title */
+            .people2-section-title {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #222;
+                letter-spacing: 0.5px;
+                margin-bottom: 10px;
+                position: relative;
+                display: inline-block;
+            }
+            .people2-section-title::after {
+                content: '';
+                display: block;
+                width: 48px;
+                height: 3px;
+                background: linear-gradient(90deg, #505cfd, #a78bfa);
+                border-radius: 2px;
+                margin-top: 8px;
+            }
+            .people2-section-header {
+                margin-bottom: 48px;
+            }
+
+            /* ===== FACULTY / ADVISOR CARD ===== */
+            .faculty-card {
+                display: flex;
+                align-items: flex-start;
+                gap: 36px;
+                background: #fff;
+                border-radius: 18px;
+                box-shadow: 0 4px 24px rgba(80,92,253,0.07);
+                padding: 36px 40px;
+                margin-bottom: 32px;
+                transition: box-shadow 0.3s, transform 0.3s;
+                border: 1px solid rgba(80,92,253,0.08);
+            }
+            .faculty-card:hover {
+                box-shadow: 0 12px 40px rgba(80,92,253,0.15);
+                transform: translateY(-3px);
+            }
+
+            /* Avatar with gradient ring */
+            .faculty-avatar-wrap {
+                flex-shrink: 0;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                padding: 3px;
+                background: linear-gradient(135deg, #505cfd 0%, #a78bfa 50%, #38bdf8 100%);
+                box-shadow: 0 4px 20px rgba(80,92,253,0.25);
+            }
+            .faculty-avatar-wrap img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: top center;
+                border: 3px solid #fff;
+            }
+
+            /* Faculty info */
+            .faculty-info {
+                flex: 1;
+                min-width: 0;
+            }
+            .faculty-name {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.35rem;
+                font-weight: 700;
+                color: #1a1a2e;
+                margin: 0 0 4px;
+                line-height: 1.3;
+            }
+            .faculty-role {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #505cfd;
+                margin-bottom: 12px;
+                letter-spacing: 0.3px;
+            }
+            .faculty-bio {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.875rem;
+                color: #555;
+                line-height: 1.75;
+                margin-bottom: 16px;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .faculty-bio.expanded {
+                display: block;
+                -webkit-line-clamp: unset;
+            }
+            .faculty-bio-toggle {
+                font-size: 0.8rem;
+                color: #505cfd;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 0;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                margin-bottom: 14px;
+                display: inline-block;
+            }
+            .faculty-bio-toggle:hover {
+                text-decoration: underline;
+            }
+
+            /* Social links */
+            .faculty-social {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .faculty-social li a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background: rgba(80,92,253,0.08);
+                color: #505cfd;
+                font-size: 0.875rem;
+                transition: background 0.2s, color 0.2s, transform 0.2s;
+                text-decoration: none;
+            }
+            .faculty-social li a:hover {
+                background: #505cfd;
+                color: #fff;
+                transform: scale(1.1);
+            }
+
+            /* ===== STUDENT TABS ===== */
+            .student-tabs {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-bottom: 36px;
+                border-bottom: 2px solid #f0f0f8;
+                padding-bottom: 0;
+            }
+            .student-tab-btn {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #888;
+                background: none;
+                border: none;
+                padding: 10px 22px 12px;
+                cursor: pointer;
+                border-bottom: 3px solid transparent;
+                margin-bottom: -2px;
+                transition: color 0.2s, border-color 0.2s;
+                letter-spacing: 0.3px;
+            }
+            .student-tab-btn:hover {
+                color: #505cfd;
+            }
+            .student-tab-btn.active {
+                color: #505cfd;
+                border-bottom-color: #505cfd;
+            }
+            .student-tab-badge {
+                display: inline-block;
+                background: rgba(80,92,253,0.1);
+                color: #505cfd;
+                font-size: 0.7rem;
+                font-weight: 700;
+                border-radius: 10px;
+                padding: 1px 7px;
+                margin-left: 5px;
+                vertical-align: middle;
+            }
+            .student-tab-btn.active .student-tab-badge {
+                background: #505cfd;
+                color: #fff;
+            }
+
+            .student-tab-panel {
+                display: none;
+            }
+            .student-tab-panel.active {
+                display: block;
+            }
+
+            /* ===== STUDENT CARDS GRID ===== */
+            .student-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 24px;
+            }
+            @media (max-width: 576px) {
+                .student-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 16px;
+                }
+            }
+
+            .student-card {
+                background: #fff;
+                border-radius: 16px;
+                padding: 24px 16px 20px;
+                text-align: center;
+                border: 1.5px solid rgba(80,92,253,0.08);
+                box-shadow: 0 2px 12px rgba(80,92,253,0.05);
+                transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+                cursor: default;
+                position: relative;
+                overflow: hidden;
+            }
+            .student-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #505cfd, #a78bfa);
+                opacity: 0;
+                transition: opacity 0.25s;
+            }
+            .student-card:hover {
+                box-shadow: 0 8px 28px rgba(80,92,253,0.14);
+                transform: translateY(-4px);
+                border-color: rgba(80,92,253,0.2);
+            }
+            .student-card:hover::before {
+                opacity: 1;
+            }
+
+            /* Student avatar */
+            .student-avatar-wrap {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin: 0 auto 14px;
+                padding: 2px;
+                background: linear-gradient(135deg, #e8eaff 0%, #c7d2fe 100%);
+                transition: background 0.25s;
+            }
+            .student-card:hover .student-avatar-wrap {
+                background: linear-gradient(135deg, #505cfd 0%, #a78bfa 100%);
+            }
+            .student-avatar-wrap img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: top center;
+                border: 2px solid #fff;
+            }
+
+            .student-name {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #1a1a2e;
+                margin: 0 0 6px;
+                line-height: 1.3;
+            }
+            .student-badge {
+                display: inline-block;
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.7rem;
+                font-weight: 600;
+                border-radius: 20px;
+                padding: 2px 10px;
+                letter-spacing: 0.3px;
+            }
+            .badge-phd {
+                background: rgba(80,92,253,0.1);
+                color: #505cfd;
+            }
+            .badge-master {
+                background: rgba(16,185,129,0.1);
+                color: #059669;
+            }
+            .badge-undergrad {
+                background: rgba(245,158,11,0.1);
+                color: #d97706;
+            }
+            .badge-visiting {
+                background: rgba(236,72,153,0.1);
+                color: #db2777;
+            }
+
+            /* ===== OUR LIFE GALLERY ===== */
+            .life-gallery {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+            @media (max-width: 768px) {
+                .life-gallery {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            .life-photo {
+                border-radius: 12px;
+                overflow: hidden;
+                aspect-ratio: 1 / 1;
+                position: relative;
+            }
+            .life-photo img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.4s;
+            }
+            .life-photo:hover img {
+                transform: scale(1.05);
+            }
+            .life-photo::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to bottom, transparent 50%, rgba(80,92,253,0.3));
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .life-photo:hover::after {
+                opacity: 1;
+            }
+
+            /* ===== RESPONSIVE ===== */
+            @media (max-width: 768px) {
+                .faculty-card {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    padding: 28px 20px;
+                    gap: 20px;
+                }
+                .faculty-social {
+                    justify-content: center;
+                }
+                .faculty-avatar-wrap {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+
+            /* Page background */
+            .people2-page-bg {
+                background: #f8f8fd;
+                min-height: 100vh;
+            }
+            .people2-container {
+                background: #f8f8fd;
+            }
+
+            /* Divider */
+            .people2-divider {
+                border: none;
+                border-top: 1px solid rgba(80,92,253,0.1);
+                margin: 0 0 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Preloader (Pi Loader) -->
+        <div id="pi-loader-overlay">
+            <div id="pi-loader-content">
+                <div id="pi-loader-glow"></div>
+                <div id="pi-loader-symbol">π</div>
+                <div id="pi-loader-lab-name">π Research Group</div>
+                <div id="pi-loader-subtitle">Photography &amp; Imaging</div>
+                <div id="pi-loader-bar-wrap">
+                    <div id="pi-loader-bar-track">
+                        <div id="pi-loader-bar-fill"></div>
+                        <div id="pi-loader-bar-glow"></div>
+                    </div>
+                    <div id="pi-loader-bar-info">
+                        <span id="pi-loader-percent">0%</span>
+                        <span id="pi-loader-stage">Initializing</span>
+                    </div>
+                </div>
+                <div id="pi-loader-dots">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        <!-- Header-->
+        <header class="header header-transparent">
+            <div class="container-fluid">
+                <div class="inner-header">
+                    <img src="assets/images/Pi_logo_final.webp">
+                </div>
+                <div class="inner-navigation collapse">
+                    <div class="inner-nav onepage-nav">
+                        <ul>
+                            <li><a href="index.html"><span class="menu-item-span">Home</span></a></li>
+                            <li><a href="people2.html"><span class="menu-item-span">People</span></a></li>
+                            <li><a href="research.html"><span class="menu-item-span">Research</span></a></li>
+                            <li><a href="publications.html"><span class="menu-item-span">Publications</span></a></li>
+                            <li><a href="joinus.html"><span class="menu-item-span">Join Us</span></a></li>
+                            <li><a href="achievement.html"><span class="menu-item-span">Achievement</span></a></li>
+                            <li><a href="miscellaneous.html"><span class="menu-item-span">Miscellaneous</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="extra-nav">
+                    <ul>
+                        <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!-- Header end-->
+        <!-- Wrapper-->
+        <div class="wrapper">
+            <!-- Hero-->
+            <section class="module-cover text-center" data-background="assets/images/people_logo.jpg" data-overlay="0.5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="module-title font-alt">People</h1>
+                            <div class="module-subtitle font-serif"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Hero end-->
+
+            <!-- Main content -->
+            <div class="people2-container">
+
+                <!-- ===== FACULTY MEMBERS ===== -->
+                <section class="people2-section" id="faculty">
+                    <div class="container">
+                        <div class="people2-section-header">
+                            <h2 class="people2-section-title">Faculty Members</h2>
+                        </div>
+
+                        <!-- Chongyi Li -->
+                        <div class="faculty-card">
+                            <div class="faculty-avatar-wrap">
+                                <img src="assets/images/team/lichongyi_photo.webp" alt="Chongyi Li">
+                            </div>
+                            <div class="faculty-info">
+                                <h3 class="faculty-name">Chongyi Li &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">李重仪</span></h3>
+                                <div class="faculty-role">Professor &nbsp;·&nbsp; Nankai University</div>
+                                <p class="faculty-bio" id="bio-lichongyi">Chongyi Li is a Professor with the School of Computer Science, Nankai University, China. Before joining Nankai, he was a Research Assistant Professor from 2021 to 2023 with the School of Computer Science and Engineering, Nanyang Technological University, Singapore. He was a research fellow with the City University of Hong Kong (supervised by J. K. Lee Chair Prof. Sam Kwong) and Nanyang Technological University (supervised by President's Chair Prof. Chen Change Loy) from 2018 to 2021. He received his Ph.D. degree (supervised by Prof. Jichang Guo) from Tianjin University in 2018. He was also a joint training Ph.D. student (supervised by Prof. Fatih Porikli) at Australian National University, Australia.</p>
+                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-lichongyi', this)">Read more</button>
+                                <ul class="faculty-social">
+                                    <li><a href="https://pi-lab.xyz/people.html" title="Homepage"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="https://github.com/Li-Chongyi/" title="GitHub"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://scholar.google.com/citations?user=1_I0P-AAAAAJ&hl=en" title="Google Scholar"><i class="fab fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Chunle Guo -->
+                        <div class="faculty-card">
+                            <div class="faculty-avatar-wrap">
+                                <img src="assets/images/blog/guochunle.jpg" alt="Chunle Guo">
+                            </div>
+                            <div class="faculty-info">
+                                <h3 class="faculty-name">Chunle Guo &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">郭春乐</span></h3>
+                                <div class="faculty-role">Associate Professor &nbsp;·&nbsp; Nankai University</div>
+                                <p class="faculty-bio" id="bio-guochunle">Chun-Le Guo is an Associate Professor at the College of Computer Science, Nankai University, China. He received his PhD degree from Tianjin University in 2020. He conducted the Ph.D. research as a Visiting Student with the School of Electronic Engineering and Computer Science, Queen Mary University of London (QMUL), UK. Then He continued his research as a Research Associate with the Department of Computer Science, City University of Hong Kong (CityU of HK).</p>
+                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-guochunle', this)">Read more</button>
+                                <ul class="faculty-social">
+                                    <li><a href="https://scholar.google.com/citations?user=RZLYwR0AAAAJ&hl=en" title="Homepage"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="https://scholar.google.com/citations?user=RZLYwR0AAAAJ&hl=en" title="Google Scholar"><i class="fab fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Jieyu Yuan -->
+                        <div class="faculty-card">
+                            <div class="faculty-avatar-wrap">
+                                <img src="assets/images/team/yuanjieyu_photo.webp" alt="Jieyu Yuan">
+                            </div>
+                            <div class="faculty-info">
+                                <h3 class="faculty-name">Jieyu Yuan &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">袁捷禹</span></h3>
+                                <div class="faculty-role">Postdoctoral Researcher &nbsp;·&nbsp; Nankai University</div>
+                                <p class="faculty-bio" id="bio-yuanjieyu">Jieyu Yuan works as a Post-Doctoral Researcher in Nankai University. His research interests include remote sensing image processing, underwater image enhancement, and object detection.</p>
+                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-yuanjieyu', this)">Read more</button>
+                                <ul class="faculty-social">
+                                    <li><a href="https://scholar.google.com/citations?user=451OzVIAAAAJ&hl=zh-CN" title="Homepage"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="https://scholar.google.com/citations?user=451OzVIAAAAJ&hl=zh-CN" title="Google Scholar"><i class="fab fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <hr class="people2-divider">
+
+                <!-- ===== STUDENTS ===== -->
+                <section class="people2-section" id="students">
+                    <div class="container">
+                        <div class="people2-section-header">
+                            <h2 class="people2-section-title">Students</h2>
+                        </div>
+
+                        <!-- Tab buttons -->
+                        <div class="student-tabs">
+                            <button class="student-tab-btn active" onclick="switchTab('phd', this)">
+                                PhD <span class="student-tab-badge">16</span>
+                            </button>
+                            <button class="student-tab-btn" onclick="switchTab('master', this)">
+                                Master <span class="student-tab-badge">11</span>
+                            </button>
+                            <button class="student-tab-btn" onclick="switchTab('undergrad', this)">
+                                Undergrad <span class="student-tab-badge">6</span>
+                            </button>
+                            <button class="student-tab-btn" onclick="switchTab('visiting', this)">
+                                Visiting <span class="student-tab-badge">1</span>
+                            </button>
+                        </div>
+
+                        <!-- PhD Tab -->
+                        <div class="student-tab-panel active" id="tab-phd">
+                            <div class="student-grid">
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zhengpeng Duan"></div>
+                                    <div class="student-name">Zhengpeng Duan</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Linghao Han"></div>
+                                    <div class="student-name">Linghao Han</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xin Jin"></div>
+                                    <div class="student-name">Xin Jin</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Ruiqi Wu"></div>
+                                    <div class="student-name">Ruiqi Wu</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Chujie Qin"></div>
+                                    <div class="student-name">Chujie Qin</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Jiayi Fu"></div>
+                                    <div class="student-name">Jiayi Fu</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Shuhao Han"></div>
+                                    <div class="student-name">Shuhao Han</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Chenyuang Wu"></div>
+                                    <div class="student-name">Chenyuang Wu</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Qianqian Zhao"></div>
+                                    <div class="student-name">Qianqian Zhao</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xuhao Liang"></div>
+                                    <div class="student-name">Xuhao Liang</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zilong Zhang"></div>
+                                    <div class="student-name">Zilong Zhang</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Jihong Li"></div>
+                                    <div class="student-name">Jihong Li</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Wenxin Zou"></div>
+                                    <div class="student-name">Wenxin Zou</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Bin Chai"></div>
+                                    <div class="student-name">Bin Chai</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Linhan Huang"></div>
+                                    <div class="student-name">Linhan Huang</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Siying Liu"></div>
+                                    <div class="student-name">Siying Liu</div>
+                                    <span class="student-badge badge-phd">PhD</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Master Tab -->
+                        <div class="student-tab-panel" id="tab-master">
+                            <div class="student-grid">
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Lina Lei"></div>
+                                    <div class="student-name">Lina Lei</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Siyu Liu"></div>
+                                    <div class="student-name">Siyu Liu</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuang Meng"></div>
+                                    <div class="student-name">Yuang Meng</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Tianyi Zhang"></div>
+                                    <div class="student-name">Tianyi Zhang</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yujun Li"></div>
+                                    <div class="student-name">Yujun Li</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yilin Mi"></div>
+                                    <div class="student-name">Yilin Mi</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Ruijie Dong"></div>
+                                    <div class="student-name">Ruijie Dong</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xianshun Liu"></div>
+                                    <div class="student-name">Xianshun Liu</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zewei Chang"></div>
+                                    <div class="student-name">Zewei Chang</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Wenjie Liao"></div>
+                                    <div class="student-name">Wenjie Liao</div>
+                                    <span class="student-badge badge-master">Master</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Undergrad Tab -->
+                        <div class="student-tab-panel" id="tab-undergrad">
+                            <div class="student-grid">
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Ziheng Zhang"></div>
+                                    <div class="student-name">Ziheng Zhang</div>
+                                    <span class="student-badge badge-undergrad">Undergrad</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Jiachen Fu"></div>
+                                    <div class="student-name">Jiachen Fu</div>
+                                    <span class="student-badge badge-undergrad">Undergrad</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Han Yang"></div>
+                                    <div class="student-name">Han Yang</div>
+                                    <span class="student-badge badge-undergrad">Undergrad</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuhang Jia"></div>
+                                    <div class="student-name">Yuhang Jia</div>
+                                    <span class="student-badge badge-undergrad">Undergrad</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuwei Wen"></div>
+                                    <div class="student-name">Yuwei Wen</div>
+                                    <span class="student-badge badge-undergrad">Undergrad</span>
+                                </div>
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Jiaji Liu"></div>
+                                    <div class="student-name">Jiaji Liu</div>
+                                    <span class="student-badge badge-undergrad">Undergrad</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Visiting Tab -->
+                        <div class="student-tab-panel" id="tab-visiting">
+                            <div class="student-grid">
+                                <div class="student-card">
+                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuanlin Zhang"></div>
+                                    <div class="student-name">Yuanlin Zhang</div>
+                                    <span class="student-badge badge-visiting">Visiting</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <hr class="people2-divider">
+
+                <!-- ===== ADVISORS ===== -->
+                <section class="people2-section" id="advisors">
+                    <div class="container">
+                        <div class="people2-section-header">
+                            <h2 class="people2-section-title">Advisors</h2>
+                        </div>
+
+                        <!-- Ming-Ming Cheng -->
+                        <div class="faculty-card">
+                            <div class="faculty-avatar-wrap">
+                                <img src="assets/images/team/CMM.webp" alt="Ming-Ming Cheng">
+                            </div>
+                            <div class="faculty-info">
+                                <h3 class="faculty-name">Ming-Ming Cheng &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">程明明</span></h3>
+                                <div class="faculty-role">Professor &nbsp;·&nbsp; Nankai University</div>
+                                <p class="faculty-bio" id="bio-cmm">Ming-Ming Cheng is a professor and doctoral supervisor at Nankai University, and the director of the Media Computing Lab. He received the IEEE TPAMI Distinguished Reviewer award, the IBM Global SUR award, etc. He is a senior member of the IEEE and on the editorial boards of the IEEE TPAMI and IEEE TIP.</p>
+                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-cmm', this)">Read more</button>
+                                <ul class="faculty-social">
+                                    <li><a href="https://mmcheng.net/cmm/" title="Homepage"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="https://mmcheng.net/cmm/" title="GitHub"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://scholar.google.com/citations?user=huWpVyEAAAAJ" title="Google Scholar"><i class="fab fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <hr class="people2-divider">
+
+                <!-- ===== OUR LIFE ===== -->
+                <section class="people2-section" id="our-life">
+                    <div class="container">
+                        <div class="people2-section-header">
+                            <h2 class="people2-section-title">Our Life</h2>
+                        </div>
+                        <div class="life-gallery">
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-1.webp" alt="CVPR 2023"></div>
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-2.webp" alt="CVPR 2023"></div>
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-3.webp" alt="CVPR 2023"></div>
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-4.webp" alt="CVPR 2023"></div>
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/Valse23.webp" alt="Valse 2023"></div>
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/SLab.webp" alt="Lab"></div>
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/party24-1.webp" alt="Party 2024"></div>
+                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/party24-2.webp" alt="Party 2024"></div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            <!-- Main content end -->
+
+            <!-- Footer-->
+            <footer class="footer">
+                <div class="footer-widgets">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 footer-nav">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="people2.html">People</a></li>
+                                    <li><a href="research.html">Research</a></li>
+                                    <li><a href="publications.html">Publications</a></li>
+                                    <li><a href="joinus.html">Join Us</a></li>
+                                    <li><a href="achievement.html">Achievement</a></li>
+                                    <li><a href="miscellaneous.html">Miscellaneous</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="space" data-MY="30px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>&#960; Research Group Location: Nankai University</p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="30px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Contact: <a href="#">lichongyi@nankai.edu.cn</a></p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="40px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer end-->
+        </div>
+        <!-- Wrapper end-->
+
+        <!-- Off canvas-->
+        <div class="off-canvas-sidebar">
+            <div class="off-canvas-sidebar-wrapper">
+                <div class="off-canvas-header"><a class="off-canvas-close" href="#"><span class="ti-close"></span></a></div>
+                <div class="off-canvas-content">
+                    <aside class="widget widget-text">
+                        <div class="textwidget">
+                            <p class="text-center"><img src="assets/images/logo-light-2.webp" alt="" width="80px"></p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <!-- Off canvas end-->
+
+        <a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
+
+        <!-- Scripts-->
+        <script defer src="assets/js/custom/jquery.min.js"></script>
+        <script defer src="assets/js/custom/popper.min.js"></script>
+        <script defer src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <script defer src="assets/js/custom/plugins.min.js"></script>
+        <script defer src="assets/js/custom/custom.min.js"></script>
+        <script defer src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
+        <script src="assets/js/custom/pi-loader.js"></script>
+
+        <script>
+            // Tab switching
+            function switchTab(tabId, btn) {
+                // Hide all panels
+                document.querySelectorAll('.student-tab-panel').forEach(function(p) {
+                    p.classList.remove('active');
+                });
+                // Deactivate all buttons
+                document.querySelectorAll('.student-tab-btn').forEach(function(b) {
+                    b.classList.remove('active');
+                });
+                // Show selected panel
+                document.getElementById('tab-' + tabId).classList.add('active');
+                btn.classList.add('active');
+            }
+
+            // Bio expand/collapse
+            function toggleBio(bioId, btn) {
+                var bio = document.getElementById(bioId);
+                if (bio.classList.contains('expanded')) {
+                    bio.classList.remove('expanded');
+                    btn.textContent = 'Read more';
+                } else {
+                    bio.classList.add('expanded');
+                    btn.textContent = 'Show less';
+                }
+            }
+        </script>
+    </body>
+</html>
