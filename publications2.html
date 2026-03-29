@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Publications - Photography & Imaging Research Group">
+        <title>Publications | Photography &amp; Imaging (&#960;) Research Group</title>
+        <link rel="shortcut icon" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+        <link href="assets/css/googleapis-font.css" rel="stylesheet">
+        <link href="assets/css/plugins.min.css" rel="stylesheet">
+        <link href="assets/css/template.css" rel="stylesheet">
+        <link href="assets/css/pi-loader.css" rel="stylesheet">
+        <style>
+            /* ===== PUBLICATIONS2 PAGE STYLES ===== */
+            body { background: #f5f6fa; }
+
+            /* Hero */
+            .pub2-hero {
+                background: linear-gradient(135deg, #0d0f2b 0%, #1a1d4e 50%, #0d1535 100%);
+                padding: 100px 0 60px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .pub2-hero::before {
+                content: '';
+                position: absolute;
+                top: -60px; left: 50%;
+                transform: translateX(-50%);
+                width: 600px; height: 600px;
+                background: radial-gradient(circle, rgba(80,92,253,0.18) 0%, transparent 70%);
+                pointer-events: none;
+            }
+            .pub2-hero h1 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 12px;
+                position: relative;
+            }
+            .pub2-hero p {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1rem;
+                color: rgba(255,255,255,0.65);
+                position: relative;
+            }
+            .pub2-hero-stats {
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+                margin-top: 32px;
+                position: relative;
+            }
+            .pub2-stat {
+                text-align: center;
+            }
+            .pub2-stat-num {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1;
+            }
+            .pub2-stat-label {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.75rem;
+                color: rgba(255,255,255,0.5);
+                margin-top: 4px;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+            }
+
+            /* Main layout */
+            .pub2-main {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 48px 24px 80px;
+            }
+
+            /* Filter bar */
+            .pub2-filter-bar {
+                background: #fff;
+                border-radius: 16px;
+                box-shadow: 0 2px 16px rgba(80,92,253,0.07);
+                padding: 24px 28px;
+                margin-bottom: 36px;
+                border: 1px solid rgba(80,92,253,0.07);
+            }
+            .pub2-filter-group {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-bottom: 16px;
+            }
+            .pub2-filter-group:last-child { margin-bottom: 0; }
+            .pub2-filter-label {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #888;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+                padding-top: 7px;
+                min-width: 80px;
+            }
+            .pub2-filter-tags {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .pub2-tag-btn {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.8rem;
+                font-weight: 500;
+                color: #555;
+                background: #f0f1fb;
+                border: 1.5px solid transparent;
+                border-radius: 20px;
+                padding: 5px 16px;
+                cursor: pointer;
+                transition: all 0.2s;
+                white-space: nowrap;
+            }
+            .pub2-tag-btn:hover {
+                color: #505cfd;
+                background: rgba(80,92,253,0.08);
+                border-color: rgba(80,92,253,0.2);
+            }
+            .pub2-tag-btn.active {
+                color: #fff;
+                background: #505cfd;
+                border-color: #505cfd;
+            }
+            .pub2-filter-divider {
+                border: none;
+                border-top: 1px solid #f0f0f8;
+                margin: 16px 0;
+            }
+
+            /* Stats bar */
+            .pub2-count-bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .pub2-count-text {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.875rem;
+                color: #888;
+            }
+            .pub2-count-text strong {
+                color: #505cfd;
+                font-weight: 700;
+            }
+
+            /* Year group header */
+            .pub2-year-group {
+                margin-bottom: 40px;
+            }
+            .pub2-year-header {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 16px;
+            }
+            .pub2-year-label {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #1a1a2e;
+                line-height: 1;
+            }
+            .pub2-year-count {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: #505cfd;
+                background: rgba(80,92,253,0.1);
+                border-radius: 10px;
+                padding: 2px 10px;
+            }
+            .pub2-year-line {
+                flex: 1;
+                height: 1px;
+                background: linear-gradient(90deg, rgba(80,92,253,0.2), transparent);
+            }
+
+            /* Paper card */
+            .pub2-paper {
+                background: #fff;
+                border-radius: 14px;
+                padding: 22px 26px;
+                margin-bottom: 12px;
+                border: 1.5px solid rgba(80,92,253,0.07);
+                box-shadow: 0 2px 10px rgba(80,92,253,0.04);
+                transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+                display: flex;
+                gap: 18px;
+                align-items: flex-start;
+            }
+            .pub2-paper:hover {
+                box-shadow: 0 6px 24px rgba(80,92,253,0.12);
+                transform: translateY(-2px);
+                border-color: rgba(80,92,253,0.18);
+            }
+            .pub2-paper-num {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #bbb;
+                min-width: 28px;
+                padding-top: 3px;
+                text-align: right;
+            }
+            .pub2-paper-body {
+                flex: 1;
+                min-width: 0;
+            }
+            .pub2-paper-title {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.975rem;
+                font-weight: 600;
+                color: #1a1a2e;
+                line-height: 1.5;
+                margin-bottom: 6px;
+            }
+            .pub2-paper-authors {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.825rem;
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+            .pub2-paper-authors .highlight-author {
+                color: #505cfd;
+                font-weight: 600;
+            }
+            .pub2-paper-venue {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.8rem;
+                color: #888;
+                margin-bottom: 12px;
+            }
+            .pub2-paper-venue .venue-name {
+                font-weight: 700;
+                color: #444;
+            }
+            .pub2-paper-venue .venue-note {
+                font-style: italic;
+                color: #e05a5a;
+                margin-left: 6px;
+            }
+            .pub2-paper-tags {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            /* Topic badges */
+            .pub2-topic-badge {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.7rem;
+                font-weight: 600;
+                border-radius: 4px;
+                padding: 2px 8px;
+                letter-spacing: 0.3px;
+            }
+            .topic-llv  { background: #e8f4fd; color: #2980b9; }
+            .topic-ci   { background: #eafaf1; color: #27ae60; }
+            .topic-ige  { background: #fef9e7; color: #d4a017; }
+            .topic-lm   { background: #fdf2f8; color: #8e44ad; }
+            .topic-su   { background: #fef5e7; color: #ca6f1e; }
+
+            /* PDF / Code buttons */
+            .pub2-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.75rem;
+                font-weight: 600;
+                border-radius: 6px;
+                padding: 4px 12px;
+                text-decoration: none;
+                transition: all 0.2s;
+                border: 1.5px solid;
+            }
+            .pub2-btn-pdf {
+                color: #e05a5a;
+                border-color: rgba(224,90,90,0.3);
+                background: rgba(224,90,90,0.05);
+            }
+            .pub2-btn-pdf:hover {
+                background: #e05a5a;
+                color: #fff;
+                border-color: #e05a5a;
+                text-decoration: none;
+            }
+            .pub2-btn-code {
+                color: #505cfd;
+                border-color: rgba(80,92,253,0.3);
+                background: rgba(80,92,253,0.05);
+            }
+            .pub2-btn-code:hover {
+                background: #505cfd;
+                color: #fff;
+                border-color: #505cfd;
+                text-decoration: none;
+            }
+            .pub2-btn-project {
+                color: #27ae60;
+                border-color: rgba(39,174,96,0.3);
+                background: rgba(39,174,96,0.05);
+            }
+            .pub2-btn-project:hover {
+                background: #27ae60;
+                color: #fff;
+                border-color: #27ae60;
+                text-decoration: none;
+            }
+            .pub2-btn i {
+                font-size: 0.75rem;
+            }
+
+            /* No results */
+            .pub2-no-results {
+                text-align: center;
+                padding: 60px 0;
+                color: #bbb;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1rem;
+                display: none;
+            }
+
+            /* Hidden paper */
+            .pub2-paper.hidden { display: none; }
+            .pub2-year-group.hidden { display: none; }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .pub2-hero h1 { font-size: 1.75rem; }
+                .pub2-hero-stats { gap: 24px; }
+                .pub2-paper { padding: 16px 18px; }
+                .pub2-main { padding: 28px 16px 60px; }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Preloader-->
+        <div class="page-loader">
+            <div class="page-loader-inner">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Header-->
+        <header class="header header-transparent">
+            <div class="container-fluid">
+                <div class="inner-header">
+                    <img src="assets/images/Pi_logo_final.webp">
+                </div>
+                <div class="inner-navigation collapse">
+                    <div class="inner-nav onepage-nav">
+                        <ul>
+                            <li><a href="index.html"><span class="menu-item-span">Home</span></a></li>
+                            <li><a href="people2.html"><span class="menu-item-span">People</span></a></li>
+                            <li><a href="research.html"><span class="menu-item-span">Research</span></a></li>
+                            <li><a href="publications.html"><span class="menu-item-span">Publications</span></a></li>
+                            <li><a href="joinus.html"><span class="menu-item-span">Join Us</span></a></li>
+                            <li><a href="achievement.html"><span class="menu-item-span">Achievement</span></a></li>
+                            <li><a href="miscellaneous.html"><span class="menu-item-span">Miscellaneous</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="extra-nav">
+                    <ul>
+                        <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <div class="pub2-hero">
+            <h1>Publications</h1>
+            <p>Photography &amp; Imaging (π) Research Group · Nankai University</p>
+            <div class="pub2-hero-stats">
+                <div class="pub2-stat">
+                    <div class="pub2-stat-num">150+</div>
+                    <div class="pub2-stat-label">Papers</div>
+                </div>
+                <div class="pub2-stat">
+                    <div class="pub2-stat-num">24K+</div>
+                    <div class="pub2-stat-label">Citations</div>
+                </div>
+                <div class="pub2-stat">
+                    <div class="pub2-stat-num">29</div>
+                    <div class="pub2-stat-label">ESI Highly Cited</div>
+                </div>
+                <div class="pub2-stat">
+                    <div class="pub2-stat-num">9</div>
+                    <div class="pub2-stat-label">ESI Hot Papers</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main -->
+        <div class="pub2-main">
+
+            <!-- Filter Bar -->
+            <div class="pub2-filter-bar">
+                <div class="pub2-filter-group">
+                    <span class="pub2-filter-label">Year</span>
+                    <div class="pub2-filter-tags" id="year-filters">
+                        <button class="pub2-tag-btn active" data-year="all">All</button>
+                        <button class="pub2-tag-btn" data-year="2026">2026</button>
+                        <button class="pub2-tag-btn" data-year="2025">2025</button>
+                        <button class="pub2-tag-btn" data-year="2024">2024</button>
+                        <button class="pub2-tag-btn" data-year="2023">2023</button>
+                        <button class="pub2-tag-btn" data-year="2022">2022</button>
+                        <button class="pub2-tag-btn" data-year="2021">2021</button>
+                        <button class="pub2-tag-btn" data-year="early">≤ 2020</button>
+                    </div>
+                </div>
+                <hr class="pub2-filter-divider">
+                <div class="pub2-filter-group">
+                    <span class="pub2-filter-label">Topic</span>
+                    <div class="pub2-filter-tags" id="topic-filters">
+                        <button class="pub2-tag-btn active" data-topic="all">All</button>
+                        <button class="pub2-tag-btn" data-topic="llv">Low-level Vision</button>
+                        <button class="pub2-tag-btn" data-topic="ci">Computational Imaging</button>
+                        <button class="pub2-tag-btn" data-topic="ige">Image Generation &amp; Editing</button>
+                        <button class="pub2-tag-btn" data-topic="lm">Large Models</button>
+                        <button class="pub2-tag-btn" data-topic="su">Scene Understanding</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Count bar -->
+            <div class="pub2-count-bar">
+                <span class="pub2-count-text">Showing <strong id="visible-count">75</strong> of <strong>75</strong> papers</span>
+            </div>
+
+            <!-- Papers list -->
+            <div id="papers-container">
+
+            <!-- ===== 2026 ===== -->
+            <div class="pub2-year-group" data-year-group="2026">
+                <div class="pub2-year-header">
+                    <span class="pub2-year-label">2026</span>
+                    <span class="pub2-year-count" id="count-2026">11</span>
+                    <div class="pub2-year-line"></div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="llv">
+                    <span class="pub2-paper-num">1</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">DNF-SR: Dual-Input and Negative-Aware Feature Fine-Tuning for Real-World Image Super-Resolution</div>
+                        <div class="pub2-paper-authors">S. Han, W. Liao, H. Fan, H. Dong, R. Zhang, C. Guo, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="ige">
+                    <span class="pub2-paper-num">2</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Stand-In: A Lightweight and Plug-and-Play Identity Control for Video Generation</div>
+                        <div class="pub2-paper-authors">B. Xue, Z. Duan, Q. Yan, W. Wang, H. Liu, C. Guo, C. Li, C. Li, and J. Lyu</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="llv">
+                    <span class="pub2-paper-num">3</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Time-Aware One Step Diffusion Network for Real-World Image Super-Resolution</div>
+                        <div class="pub2-paper-authors">T. Zhang, Z. Duan, C. Guo, P. Jiang, B. Li, M. Cheng, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="ige">
+                    <span class="pub2-paper-num">4</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">YOSE: You Only Select Essential Tokens for Efficient DiT-based Video Object Removal</div>
+                        <div class="pub2-paper-authors">C. Wu, L. Lei, F. Li, C. Guo, D. Kong, X. Qin, Z. Wang, M. Cheng, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="ige">
+                    <span class="pub2-paper-num">5</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">VTinker: Guided Flow Upsampling and Texture Mapping for High-Resolution Video Frame Interpolation</div>
+                        <div class="pub2-paper-authors">C. Wu, J. Fu, C. Guo, S. Han, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="ige lm">
+                    <span class="pub2-paper-num">6</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">PerTouch: VLM-Driven Agent for Personalized and Semantic Image Retouching</div>
+                        <div class="pub2-paper-authors">Z. Chang, Z. Duan, J. Zhang, C. Guo, S. Liu, H. Chun, H. Park, Z. Liu, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <span class="pub2-topic-badge topic-lm">Large Models</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="lm">
+                    <span class="pub2-paper-num">7</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">EvalMuse-40K: A Reliable and Fine-Grained Benchmark with Comprehensive Human Annotations for Text-to-Image Generation Model Evaluation</div>
+                        <div class="pub2-paper-authors">S. Han, H. Fan, J. Fu, L. Li, T. Li, J. Cui, Y. Wang, Y. Tai, J. Sun, C. Guo, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-lm">Large Models</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="ci">
+                    <span class="pub2-paper-num">8</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">3D-UIR: 3D Gaussian for Underwater 3D Scene Reconstruction via Physics-Based Appearance-Medium Decoupling</div>
+                        <div class="pub2-paper-authors">J. Yuan, Y. Li, Y. Zhang, C. Guo, X. Tang, R. Wang, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="su">
+                    <span class="pub2-paper-num">9</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Expose Camouflage in the Water: Underwater Camouflaged Instance Segmentation and Dataset</div>
+                        <div class="pub2-paper-authors">C. Wang, H. Li, <span class="highlight-author">C. Li</span>, H. Liu, X. Tang, and S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="llv">
+                    <span class="pub2-paper-num">10</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Incorporating Uncertainty-Guided and Top-k Codebook Matching for Real-World Blind Image Super-Resolution</div>
+                        <div class="pub2-paper-authors">W. Wen, T. Zhang, Q. Zhao, Z. Zheng, C. Guo, X. Shao, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2026</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2026" data-topics="ci">
+                    <span class="pub2-paper-num">11</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Boosting Guided Depth Super-Resolution Through Large Depth Estimation Model and Alignment-then-Fusion Strategy</div>
+                        <div class="pub2-paper-authors">Y. Zhang, X. Jiang, C. L. Guo, X. Tang, G. Wang, W. Li, X. Liu, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVM 2026</span> <span class="venue-note">(IF: 18.3)</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /2026 -->
+
+            <!-- ===== 2025 ===== -->
+            <div class="pub2-year-group" data-year-group="2025">
+                <div class="pub2-year-header">
+                    <span class="pub2-year-label">2025</span>
+                    <span class="pub2-year-count" id="count-2025">16</span>
+                    <div class="pub2-year-line"></div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ci">
+                    <span class="pub2-paper-num">12</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">UltraLED: Learning to See Everything in Ultra-High Dynamic Range Scenes</div>
+                        <div class="pub2-paper-authors">Y. Meng, X. Jin, L. Lei, C. Guo, <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">NeurIPS 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ige">
+                    <span class="pub2-paper-num">13</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">DIPO: Dual-State Images Controlled Articulated Object Generation Powered by Diverse Data</div>
+                        <div class="pub2-paper-authors">R. Wu, X. Wang, L. Liu, C. Guo, J. Qiu, <span class="highlight-author">C. Li</span><sup>+</sup>, L. Huang, Z. Su, and M. Cheng</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">NeurIPS 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ige">
+                    <span class="pub2-paper-num">14</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Control Color: Multimodal Diffusion-Based Interactive Image Colorization</div>
+                        <div class="pub2-paper-authors">Z. Liang, Z. Li, S. Zhou, <span class="highlight-author">C. Li</span>, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IJCV 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="lm">
+                    <span class="pub2-paper-num">15</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">DetectAnyLLM: Towards Generalizable and Robust Detection of Machine-Generated Text Across Domains and Models</div>
+                        <div class="pub2-paper-authors">J. Fu, C. Guo, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ACM MM 2025</span> <span class="venue-note">Oral</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-lm">Large Models</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="llv">
+                    <span class="pub2-paper-num">16</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">DiT4SR: Taming Diffusion Transformer for Real-World Image Super-Resolution</div>
+                        <div class="pub2-paper-authors">Z. Duan, J. Zhang, X. Jin, Z. Zhang, Z. Xiong, D. Zou, J. Ren, C. Guo, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ci">
+                    <span class="pub2-paper-num">17</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">MR-FIQA: Face Image Quality Assessment with Multi-Reference Representations from Synthetic Data Generation</div>
+                        <div class="pub2-paper-authors">F. Ou, <span class="highlight-author">C. Li</span>, S. Wang, S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ci">
+                    <span class="pub2-paper-num">18</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Joint Semantic and Rendering Enhancements in 3D Gaussian Modeling with Anisotropic Local Encoding</div>
+                        <div class="pub2-paper-authors">J. He, <span class="highlight-author">C. Li</span>, S. Wang, S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="llv">
+                    <span class="pub2-paper-num">19</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Iterative Predictor-Critic Code Decoding for Real-World Image Dehazing</div>
+                        <div class="pub2-paper-authors">J. Fu, S. Liu, Z. Liu, C. Guo, H. Park, R. Wu, G. Wang, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="llv">
+                    <span class="pub2-paper-num">20</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable</div>
+                        <div class="pub2-paper-authors">X. Jin, S. Niklaus, Z. Zhang, Z. Xia, C. Guo, Y. Yang, J. Chen, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ige">
+                    <span class="pub2-paper-num">21</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">DiffRetouch: Using Diffusion to Retouch on the Shoulder of Experts</div>
+                        <div class="pub2-paper-authors">Z. Duan, J. Zhang, Z. Lin, X. Wang, D. Zhou, C. Guo, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ige">
+                    <span class="pub2-paper-num">22</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">A Diffusion-Based Framework for Occluded Object Movement</div>
+                        <div class="pub2-paper-authors">Z. Duan, J. Zhang, S. Liu, Z. Lin, C. Guo, D. Zhou, J. Ren, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="llv">
+                    <span class="pub2-paper-num">23</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">FaceMe: Robust Blind Face Restoration With Personal Identification</div>
+                        <div class="pub2-paper-authors">S. Liu, Z. Duan, J. Ouyang, J. Fu, H. Park, Z. Liu, C. Guo, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="su">
+                    <span class="pub2-paper-num">24</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Deep Underwater Object Detection in the Era of Artificial Intelligence: Current, Challenge, and Future</div>
+                        <div class="pub2-paper-authors">L. Chen, Y. Huang, J. Dong, Q. Xu, S. Kwong, H. Lu, H. Lu, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ACM CSUR 2025</span> <span class="venue-note">(IF: 28)</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ci">
+                    <span class="pub2-paper-num">25</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Improving Point Cloud Robustness Through Perturbation Simulation and Distortion-Guided Feature Augmentation</div>
+                        <div class="pub2-paper-authors">J. He, <span class="highlight-author">C. Li</span>, S. Wang, and S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="su">
+                    <span class="pub2-paper-num">26</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Heterogeneous Experts and Hierarchical Perception for Underwater Salient Object Detection</div>
+                        <div class="pub2-paper-authors">M. Zha, G. Wang, Y. Pei, T. Li, X. Tang, <span class="highlight-author">C. Li</span>, Y. Yang, and H. Shen</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2025" data-topics="ci">
+                    <span class="pub2-paper-num">27</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Deep Underwater Image Quality Assessment with Explicit Degradation Awareness Embedding</div>
+                        <div class="pub2-paper-authors">Q. Jiang, Y. Gu, Z. Wu, <span class="highlight-author">C. Li</span>, H. Xiong, F. Shao, and Z. Wang</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2025</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /2025 -->
+
+            <!-- ===== 2024 ===== -->
+            <div class="pub2-year-group" data-year-group="2024">
+                <div class="pub2-year-header">
+                    <span class="pub2-year-label">2024</span>
+                    <span class="pub2-year-count" id="count-2024">14</span>
+                    <div class="pub2-year-line"></div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv">
+                    <span class="pub2-paper-num">28</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Flare7K++: Mixing Synthetic and Real Datasets for Nighttime Flare Removal and Beyond</div>
+                        <div class="pub2-paper-authors">Y. Dai, <span class="highlight-author">C. Li</span>, S. Zhou, R. Feng, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TPAMI 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv">
+                    <span class="pub2-paper-num">29</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Towards a Flexible Semantic Guided Model for Single Image Enhancement and Restoration</div>
+                        <div class="pub2-paper-authors">Y. Wu, G. Wang, S. Liu, Y. Yang, W. Li, X. Tang, S. Gu, <span class="highlight-author">C. Li</span>, and H. Shen</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TPAMI 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="ci">
+                    <span class="pub2-paper-num">30</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Lighting Every Darkness with 3DGS: Fast Training and Real-Time Rendering for HDR View Synthesis</div>
+                        <div class="pub2-paper-authors">X. Jin, P. Jiao, Z. Duan, X. Yang, <span class="highlight-author">C. Li</span>, C. Guo, and B. Ren</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">NeurIPS 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="ci">
+                    <span class="pub2-paper-num">31</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">CLIB-FIQA: Face Image Quality Assessment with Confidence Calibration</div>
+                        <div class="pub2-paper-authors">F. Ou, <span class="highlight-author">C. Li</span>, S. Wang, and S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="ige">
+                    <span class="pub2-paper-num">32</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">LAMP: Learn A Motion Pattern for Few-Shot Video Generation</div>
+                        <div class="pub2-paper-authors">R. Wu, L. Chen, T. Yang, C. Guo, <span class="highlight-author">C. Li</span>, and X. Zhang</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="ige">
+                    <span class="pub2-paper-num">33</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Learning Inclusion Matching for Animation Paint Bucket Colorization</div>
+                        <div class="pub2-paper-authors">Y. Dai, S. Zhou, Q. Li, <span class="highlight-author">C. Li</span>, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv">
+                    <span class="pub2-paper-num">34</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Fourier Priors-Guided Diffusion for Zero-Shot Joint Low-Light Enhancement and Deblurring</div>
+                        <div class="pub2-paper-authors">X. Lv, S. Zhang, C. Wang, Y. Zheng, B. Zhong, <span class="highlight-author">C. Li</span>, and L. Nie</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv">
+                    <span class="pub2-paper-num">35</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Synergistic Multiscale Detail Refinement via Intrinsic Supervision for Underwater Image Enhancement</div>
+                        <div class="pub2-paper-authors">D. Zhang, J. Zhou, C. Guo, W. Zhang, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="su">
+                    <span class="pub2-paper-num">36</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">AMSP-UOD: When Vortex Convolution and Stochastic Perturbation Meet Underwater Object Detection</div>
+                        <div class="pub2-paper-authors">J. Zhou, Z. He, K. M. Lam, Y. Wang, W. Zhang, C. Guo, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv">
+                    <span class="pub2-paper-num">37</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Kalman-Inspired Feature Propagation for Video Face Super-Resolution</div>
+                        <div class="pub2-paper-authors">R. Feng, <span class="highlight-author">C. Li</span>, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ECCV 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv">
+                    <span class="pub2-paper-num">38</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Restore Anything with Masks: Leveraging Mask Image Modeling for Blind All-in-One Image Restoration</div>
+                        <div class="pub2-paper-authors">C. Qin, R. Wu, Z. Liu, X. Lin, C. Guo, H. H. Park, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ECCV 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv">
+                    <span class="pub2-paper-num">39</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">JoReS-Diff: Joint Retinex and Semantic Priors in Diffusion Model for Low-light Image Enhancement</div>
+                        <div class="pub2-paper-authors">Y. Wu, G. Wang, Z. Wang, Y. Yang, T. Li, M. Zhang, <span class="highlight-author">C. Li</span>, and H. Shen</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ACM MM 2024</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="ci">
+                    <span class="pub2-paper-num">40</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Generalizing ISP Model by Unsupervised Raw-to-Raw Mapping</div>
+                        <div class="pub2-paper-authors">D. Xie, C. Qiao, L. Liang, Z. Wang, T. Li, Q. Liu, <span class="highlight-author">C. Li</span>, G. Wang, and Y. Yang</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ACM MM 2024</span> <span class="venue-note">Oral</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2024" data-topics="llv ci">
+                    <span class="pub2-paper-num">41*</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">PUGAN: Physical Model-Guided Underwater Image Enhancement Using GAN with Dual-Discriminators</div>
+                        <div class="pub2-paper-authors">R. Cong, W. Yang, W. Zhang, <span class="highlight-author">C. Li</span><sup>+</sup>, C. Guo, Q. Huang, and S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /2024 -->
+
+            <!-- ===== 2023 ===== -->
+            <div class="pub2-year-group" data-year-group="2023">
+                <div class="pub2-year-header">
+                    <span class="pub2-year-label">2023</span>
+                    <span class="pub2-year-count" id="count-2023">13</span>
+                    <div class="pub2-year-line"></div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="llv">
+                    <span class="pub2-paper-num">42</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Embedding Fourier for Ultra-High-Definition Low-Light Image Enhancement</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, C. Guo, M. Zhou, Z. Liang, S. Zhou, R. Feng, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICLR 2023</span> <span class="venue-note">Oral</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="llv">
+                    <span class="pub2-paper-num">43</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Fourmer: An Efficient Global Modeling Paradigm for Image Restoration</div>
+                        <div class="pub2-paper-authors">M. Zhou, J. Huang, C. Guo, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICML 2023</span> <span class="venue-note">Oral</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="ci">
+                    <span class="pub2-paper-num">44</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Underwater Ranker: Learn Which is Better and How to be Better</div>
+                        <div class="pub2-paper-authors">C. Guo, R. Wu, X. Jin, L. Han, Z. Chai, W. Zhang, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">AAAI 2023</span> <span class="venue-note">Oral</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="llv">
+                    <span class="pub2-paper-num">45</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Iterative Prompt Learning for Unsupervised Backlit Image Enhancement</div>
+                        <div class="pub2-paper-authors">Z. Liang, <span class="highlight-author">C. Li</span>, S. Zhou, R. Feng, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2023</span> <span class="venue-note">Oral</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="ige">
+                    <span class="pub2-paper-num">46</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">ProPainter: Improving Video Inpainting with Enhanced Propagation and Efficient Transformer</div>
+                        <div class="pub2-paper-authors">S. Zhou, <span class="highlight-author">C. Li</span>, K. Chan, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ige">Image Generation &amp; Editing</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="ci">
+                    <span class="pub2-paper-num">47</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising</div>
+                        <div class="pub2-paper-authors">X. Jin, J. Xiao, L. Han, C. Guo, R. Zhang, X. Liu, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="llv">
+                    <span class="pub2-paper-num">48</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Improving Lens Flare Removal with General-Purpose Pipeline and Multiple Light</div>
+                        <div class="pub2-paper-authors">Y. Zhou, D. Liang, S. Chen, S. Huang, S. Yang, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="ci">
+                    <span class="pub2-paper-num">49</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Troubleshooting Ethnic Quality Bias with Curriculum Domain Adaptation for Face Image Quality Assessment</div>
+                        <div class="pub2-paper-authors">F. Ou, B. Chen, <span class="highlight-author">C. Li</span>, S. Wang, and S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ICCV 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="llv">
+                    <span class="pub2-paper-num">50</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Nighttime Smartphone Reflective Flare Removal Using Optical Center Symmetry Prior</div>
+                        <div class="pub2-paper-authors">Y. Dai, Y. Luo, S. Zhou, <span class="highlight-author">C. Li</span><sup>+</sup>, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2023</span> <span class="venue-note">Highlight</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="ci">
+                    <span class="pub2-paper-num">51</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">DNF: Decouple and Feedback Network for Seeing in the Dark</div>
+                        <div class="pub2-paper-authors">X. Jin, L. Han, Z. Li, Z. Chai, C. Guo, and <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2023</span> <span class="venue-note">Highlight</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="llv">
+                    <span class="pub2-paper-num">52</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">RIDCP: Revitalizing Real Image Dehazing via High-Quality Codebook Priors</div>
+                        <div class="pub2-paper-authors">R. Wu, Z. Duan, C. Guo, Z. Chai, <span class="highlight-author">C. Li</span></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="ci">
+                    <span class="pub2-paper-num">53</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Generating Aligned Pseudo-Supervision from Non-Aligned Data for Image Restoration in Under-Display Camera</div>
+                        <div class="pub2-paper-authors">R. Feng, <span class="highlight-author">C. Li</span>, H. Chen, S. Li, J. Gu, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2023" data-topics="llv">
+                    <span class="pub2-paper-num">54</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Learning Semantic-Aware Knowledge Guidance for Low-Light Image Enhancement</div>
+                        <div class="pub2-paper-authors">Y. Wu, C. Pan, G. Wang, Y. Yang, J. Wei, <span class="highlight-author">C. Li</span>, and H. Shen</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2023</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /2023 -->
+
+            <!-- ===== 2022 ===== -->
+            <div class="pub2-year-group" data-year-group="2022">
+                <div class="pub2-year-header">
+                    <span class="pub2-year-label">2022</span>
+                    <span class="pub2-year-count" id="count-2022">8</span>
+                    <div class="pub2-year-line"></div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="llv">
+                    <span class="pub2-paper-num">55</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Deep Fourier Up-Sampling</div>
+                        <div class="pub2-paper-authors">M. Zhou, H. Yu, J. Huang, F. Zhao, J. Gu, C. C. Loy, D. Meng, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">NeurIPS 2022</span> <span class="venue-note">Spotlight</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="llv">
+                    <span class="pub2-paper-num">56</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Towards Robust Blind Face Restoration with Codebook Lookup TransFormer</div>
+                        <div class="pub2-paper-authors">S. Zhou, K. C. K. Chan, <span class="highlight-author">C. Li</span>, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">NeurIPS 2022</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="ci">
+                    <span class="pub2-paper-num">57</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Flare7K: A Phenomenological Nighttime Flare Removal Dataset</div>
+                        <div class="pub2-paper-authors">Y. Dai, <span class="highlight-author">C. Li</span>, S. Zhou, R. Feng, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">NeurIPS 2022</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="llv">
+                    <span class="pub2-paper-num">58</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">LEDNet: Joint Low-Light Enhancement and Deblurring in the Dark</div>
+                        <div class="pub2-paper-authors">S. Zhou, <span class="highlight-author">C. Li</span>, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ECCV 2022</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="llv">
+                    <span class="pub2-paper-num">59</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Image Dehazing Transformer with Transmission-Aware 3D Position Embedding</div>
+                        <div class="pub2-paper-authors">C. Guo, Q. Yan, S. Anwar, R. Cong, W. Ren, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2022</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="ci">
+                    <span class="pub2-paper-num">60</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Underwater Image Enhancement with Hyper-Laplacian Reflectance Priors</div>
+                        <div class="pub2-paper-authors">P. Zhuang, J. Wu, F. Porikli, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2022</span> <span class="venue-note">ESI Hot · ESI Highly Cited</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="ci">
+                    <span class="pub2-paper-num">61</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Underwater Image Enhancement via Minimal Color Loss and Locally Adaptive Contrast Enhancement</div>
+                        <div class="pub2-paper-authors">W. Zhang, P. Zhuang, H. Sun, G. Li, S. Kwong, and <span class="highlight-author">C. Li</span><sup>+</sup></div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2022</span> <span class="venue-note">ESI Hot · ESI Highly Cited</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2022" data-topics="su">
+                    <span class="pub2-paper-num">62</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">CIR-Net: Cross-Modality Interaction and Refinement for RGB-D Salient Object Detection</div>
+                        <div class="pub2-paper-authors">R. Cong, Q. Lin, C. Zhang, <span class="highlight-author">C. Li</span><sup>+</sup>, X. Cao, Q. Huang, and Y. Zhao</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2022</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /2022 -->
+
+            <!-- ===== 2021 ===== -->
+            <div class="pub2-year-group" data-year-group="2021">
+                <div class="pub2-year-header">
+                    <span class="pub2-year-label">2021</span>
+                    <span class="pub2-year-count" id="count-2021">4</span>
+                    <div class="pub2-year-line"></div>
+                </div>
+
+                <div class="pub2-paper" data-year="2021" data-topics="llv">
+                    <span class="pub2-paper-num">63</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Low-Light Image and Video Enhancement Using Deep Learning: A Survey</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, C. Guo, L. Han, J. Jiang, M. M. Cheng, J. Gu, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TPAMI 2021</span> <span class="venue-note">ESI Hot · ESI Highly Cited</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2021" data-topics="llv">
+                    <span class="pub2-paper-num">64</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Learning to Enhance Low-Light Image via Zero-Reference Deep Curve Estimation</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, C. Guo, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TPAMI 2021</span> <span class="venue-note">ESI Highly Cited</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2021" data-topics="ci">
+                    <span class="pub2-paper-num">65</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Underwater Image Enhancement via Medium Transmission-Guided Multi-Color Space Embedding</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, S. Anwar, J. Hou, R. Cong, C. Guo, and W. Ren</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2021</span> <span class="venue-note">ESI Highly Cited · TIP 2023 Impact Factor #2</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="2021" data-topics="su">
+                    <span class="pub2-paper-num">66</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Under-Display Camera Image Enhancement via Cascaded Curve Estimation</div>
+                        <div class="pub2-paper-authors">J. Luo, W. Ren, T. Wang, <span class="highlight-author">C. Li</span>, and X. Cao</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2022</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /2021 -->
+
+            <!-- ===== ≤2020 ===== -->
+            <div class="pub2-year-group" data-year-group="early">
+                <div class="pub2-year-header">
+                    <span class="pub2-year-label">≤ 2020</span>
+                    <span class="pub2-year-count" id="count-early">9</span>
+                    <div class="pub2-year-line"></div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="llv">
+                    <span class="pub2-paper-num">67</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement</div>
+                        <div class="pub2-paper-authors">C. Guo, <span class="highlight-author">C. Li</span><sup>+</sup>, J. Guo, C. C. Loy, J. Hou, S. Kwong, and R. Cong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">CVPR 2020</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-llv">Low-level Vision</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="su">
+                    <span class="pub2-paper-num">68</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">RGB-D Salient Object Detection with Cross-Modality Modulation and Selection</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, R. Cong, Y. Piao, Q. Xu, and C. C. Loy</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ECCV 2020</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="ci">
+                    <span class="pub2-paper-num">69</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">NuI-Go: Recursive Non-Local Encoder-Decoder Network for Retinal Image Non-Uniform Illumination Removal</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, H. Fu, R. Cong, Z. Li, and Q. Xu</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">ACM MM 2020</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="su">
+                    <span class="pub2-paper-num">70</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">CoADNet: Collaborative Aggregation-and-Distribution Networks for Co-Salient Object Detection</div>
+                        <div class="pub2-paper-authors">Q. Zhang, R. Cong, J. Hou, <span class="highlight-author">C. Li</span>, and Y. Zhao</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">NeurIPS 2020</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="su">
+                    <span class="pub2-paper-num">71</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Dense Attention Fluid Network for Salient Object Detection in Optical Remote Sensing Images</div>
+                        <div class="pub2-paper-authors">Q. Zhang, R. Cong, <span class="highlight-author">C. Li</span>, M. M. Cheng, Y. Fang, X. Cao, Y. Zhao, and S. Kwong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2020</span> <span class="venue-note">ESI Highly Cited · ESI Hot</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-su">Scene Understanding</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="ci">
+                    <span class="pub2-paper-num">72</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">An Underwater Image Enhancement Benchmark Dataset and Beyond</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, C. Guo, W. Ren, R. Cong, J. Hou, S. Kwong, and D. Tao</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2019</span> <span class="venue-note">🏆 2025 IEEE SPS Best Paper Award · ESI Highly Cited · TIP 2022 Impact Factor #1</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="ci">
+                    <span class="pub2-paper-num">73</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Underwater Scene Prior Inspired Deep Underwater Image and Video Enhancement</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, S. Anwar, and F. Porikli</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">Pattern Recognition 2019</span> <span class="venue-note">ESI Highly Cited · Best Paper Nomination</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="ci">
+                    <span class="pub2-paper-num">74</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Hierarchical Features Driven Residual Learning for Depth Map Super-Resolution</div>
+                        <div class="pub2-paper-authors">C. Guo, <span class="highlight-author">C. Li</span><sup>+</sup>, J. Guo, C. C. Loy, J. Hou, S. Kwong, and R. Cong</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2018</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub2-paper" data-year="early" data-topics="ci">
+                    <span class="pub2-paper-num">75</span>
+                    <div class="pub2-paper-body">
+                        <div class="pub2-paper-title">Underwater Image Enhancement by Dehazing with Minimum Information Loss and Histogram Distribution Prior</div>
+                        <div class="pub2-paper-authors"><span class="highlight-author">C. Li</span>, J. Guo, R. Cong, Y. Pang, and B. Wang</div>
+                        <div class="pub2-paper-venue"><span class="venue-name">IEEE TIP 2016</span> <span class="venue-note">ESI Highly Cited</span></div>
+                        <div class="pub2-paper-tags">
+                            <span class="pub2-topic-badge topic-ci">Computational Imaging</span>
+                            <a href="#" class="pub2-btn pub2-btn-pdf"><i class="ti-file"></i> PDF</a>
+                            <a href="#" class="pub2-btn pub2-btn-code"><i class="ti-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /early -->
+
+            </div><!-- /papers-container -->
+
+            <div class="pub2-no-results" id="no-results">
+                <i class="ti-search" style="font-size:2rem;display:block;margin-bottom:12px;"></i>
+                No papers found for the selected filters.
+            </div>
+
+        </div><!-- /pub2-main -->
+
+        <!-- Footer-->
+        <footer class="footer">
+            <div class="footer-widgets">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 footer-nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="people2.html">People</a></li>
+                                    <li><a href="research.html">Research</a></li>
+                                    <li><a href="publications.html">Publications</a></li>
+                                    <li><a href="joinus.html">Join Us</a></li>
+                                    <li><a href="achievement.html">Achievement</a></li>
+                                    <li><a href="miscellaneous.html">Miscellaneous</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="copyright">Copyright &copy; 2024 Photography &amp; Imaging (π) Research Group, Nankai University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts-->
+        <script src="assets/js/plugins.min.js"></script>
+        <script src="assets/js/custom/custom.js"></script>
+        <script src="assets/js/custom/pi-loader.js"></script>
+
+        <script>
+        (function() {
+            var activeYear = 'all';
+            var activeTopic = 'all';
+
+            function applyFilters() {
+                var papers = document.querySelectorAll('.pub2-paper');
+                var yearGroups = document.querySelectorAll('.pub2-year-group');
+                var visibleCount = 0;
+
+                papers.forEach(function(p) {
+                    var year = p.getAttribute('data-year');
+                    var topics = p.getAttribute('data-topics') || '';
+                    var topicList = topics.split(' ');
+
+                    var yearMatch = (activeYear === 'all') || (year === activeYear);
+                    var topicMatch = (activeTopic === 'all') || (topicList.indexOf(activeTopic) !== -1);
+
+                    if (yearMatch && topicMatch) {
+                        p.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        p.classList.add('hidden');
+                    }
+                });
+
+                // Hide year groups with no visible papers
+                yearGroups.forEach(function(g) {
+                    var visible = g.querySelectorAll('.pub2-paper:not(.hidden)').length;
+                    if (visible === 0) {
+                        g.classList.add('hidden');
+                    } else {
+                        g.classList.remove('hidden');
+                    }
+                });
+
+                document.getElementById('visible-count').textContent = visibleCount;
+                document.getElementById('no-results').style.display = (visibleCount === 0) ? 'block' : 'none';
+            }
+
+            // Year filter
+            document.getElementById('year-filters').addEventListener('click', function(e) {
+                var btn = e.target.closest('.pub2-tag-btn');
+                if (!btn) return;
+                document.querySelectorAll('#year-filters .pub2-tag-btn').forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                activeYear = btn.getAttribute('data-year');
+                applyFilters();
+            });
+
+            // Topic filter
+            document.getElementById('topic-filters').addEventListener('click', function(e) {
+                var btn = e.target.closest('.pub2-tag-btn');
+                if (!btn) return;
+                document.querySelectorAll('#topic-filters .pub2-tag-btn').forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                activeTopic = btn.getAttribute('data-topic');
+                applyFilters();
+            });
+        })();
+        </script>
+    </body>
+</html>
