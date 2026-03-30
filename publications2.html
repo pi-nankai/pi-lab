@@ -375,7 +375,7 @@
                         <ul>
                             <li><a href="index.html"><span class="menu-item-span">Home</span></a></li>
                             <li><a href="people2.html"><span class="menu-item-span">People</span></a></li>
-                            <li><a href="research.html"><span class="menu-item-span">Research</span></a></li>
+                            <li><a href="research2.html"><span class="menu-item-span">Research</span></a></li>
                             <li><a href="publications.html"><span class="menu-item-span">Publications</span></a></li>
                             <li><a href="joinus.html"><span class="menu-item-span">Join Us</span></a></li>
                             <li><a href="achievement.html"><span class="menu-item-span">Achievement</span></a></li>
@@ -1585,6 +1585,27 @@
                 activeTopic = btn.getAttribute('data-topic');
                 applyFilters();
             });
+
+            // Auto-activate topic from URL hash, e.g. publications2.html#topic-llv
+            function activateTopicFromHash() {
+                var hash = window.location.hash;
+                if (hash && hash.indexOf('#topic-') === 0) {
+                    var topicCode = hash.replace('#topic-', '');
+                    var btn = document.querySelector('#topic-filters .pub2-tag-btn[data-topic="' + topicCode + '"]');
+                    if (btn) {
+                        document.querySelectorAll('#topic-filters .pub2-tag-btn').forEach(function(b) { b.classList.remove('active'); });
+                        btn.classList.add('active');
+                        activeTopic = topicCode;
+                        applyFilters();
+                        setTimeout(function() {
+                            var filterBar = document.querySelector('.pub2-filter-bar');
+                            if (filterBar) filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 400);
+                    }
+                }
+            }
+            activateTopicFromHash();
+            window.addEventListener('hashchange', activateTopicFromHash);
         })();
         </script>
     </body>
