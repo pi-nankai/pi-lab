@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+        <link rel="dns-prefetch" href="https://img.shields.io">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Join Us - Photography & Imaging Research Group">
+        <meta name="author" content="">
+        <title>Join Us | Photography &amp; Imaging (&#960;) Research Group</title>
+        <link rel="shortcut icon" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+        <link href="assets/css/googleapis-font.css" rel="stylesheet">
+        <link href="assets/css/plugins.min.css" rel="stylesheet">
+        <link href="assets/css/template.css" rel="stylesheet">
+        <link href="assets/css/pi-loader.css" rel="stylesheet">
+        <style>
+            body {
+                background: #ffffff;
+            }
+
+            .joinus2-hero {
+                position: relative;
+                background-image: linear-gradient(rgba(10,12,22,0.52), rgba(10,12,22,0.52)), url('assets/images/joinus_logo.jpg');
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                min-height: 560px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .joinus2-hero-inner {
+                max-width: 860px;
+                margin: 0 auto;
+                padding: 150px 20px 110px;
+            }
+
+            .joinus2-kicker {
+                font-family: 'Poppins', sans-serif;
+                font-size: 12px;
+                letter-spacing: 0.35em;
+                text-transform: uppercase;
+                color: rgba(255,255,255,0.82);
+                margin-bottom: 26px;
+            }
+
+            .joinus2-hero h1 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 72px;
+                line-height: 1.05;
+                font-weight: 600;
+                color: #fff;
+                margin-bottom: 24px;
+            }
+
+            .joinus2-subtitle {
+                max-width: 760px;
+                margin: 0 auto;
+                font-size: 17px;
+                line-height: 1.9;
+                color: rgba(255,255,255,0.92);
+            }
+
+            .joinus2-section {
+                padding: 88px 0;
+            }
+
+            .joinus2-section-muted {
+                background: #fafafa;
+            }
+
+            .joinus2-eyebrow {
+                font-family: 'Poppins', sans-serif;
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 0.26em;
+                text-transform: uppercase;
+                color: #777;
+                margin-bottom: 18px;
+            }
+
+            .joinus2-title {
+                font-family: 'Poppins', sans-serif;
+                font-size: 54px;
+                line-height: 1.08;
+                font-weight: 600;
+                color: #222;
+                margin-bottom: 28px;
+            }
+
+            .joinus2-copy,
+            .joinus2-card p,
+            .joinus2-role-copy,
+            .joinus2-note,
+            .joinus2-contact-copy {
+                font-size: 15px;
+                line-height: 2;
+                color: #555;
+            }
+
+            .joinus2-overview-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+                gap: 56px;
+                align-items: start;
+            }
+
+            .joinus2-highlight-list {
+                display: grid;
+                gap: 16px;
+            }
+
+            .joinus2-highlight {
+                border-left: 3px solid #444;
+                background: #fafafa;
+                padding: 18px 20px;
+                font-size: 15px;
+                line-height: 2;
+                color: #555;
+            }
+
+            .joinus2-card-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 24px;
+            }
+
+            .joinus2-card {
+                background: #fff;
+                border: 1px solid #e8e8e8;
+                padding: 32px 26px;
+                transition: box-shadow 0.25s ease, transform 0.25s ease;
+                height: 100%;
+            }
+
+            .joinus2-card:hover {
+                box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+                transform: translateY(-2px);
+            }
+
+            .joinus2-card h3 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 28px;
+                line-height: 1.2;
+                color: #222;
+                margin: 18px 0 12px;
+            }
+
+            .joinus2-icon {
+                width: 30px;
+                height: 30px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: #444;
+                font-size: 24px;
+            }
+
+            .joinus2-roles {
+                margin-top: 10px;
+            }
+
+            .joinus2-role {
+                display: grid;
+                grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+                gap: 44px;
+                padding-top: 32px;
+                margin-top: 32px;
+                border-top: 1px solid #e5e5e5;
+            }
+
+            .joinus2-role:first-child {
+                margin-top: 0;
+            }
+
+            .joinus2-role h3 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 36px;
+                line-height: 1.15;
+                color: #222;
+                margin-bottom: 18px;
+            }
+
+            .joinus2-application-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+                gap: 56px;
+                align-items: start;
+            }
+
+            .joinus2-note-list {
+                margin-top: 32px;
+            }
+
+            .joinus2-note-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                margin-bottom: 20px;
+            }
+
+            .joinus2-note-index {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+                border-radius: 50%;
+                background: #222;
+                color: #fff;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 2px;
+            }
+
+            .joinus2-contact-card {
+                border: 1px solid #e6e6e6;
+                background: #fff;
+                padding: 34px 34px 30px;
+            }
+
+            .joinus2-contact-card h3 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 38px;
+                line-height: 1.15;
+                color: #222;
+                margin: 16px 0 18px;
+            }
+
+            .joinus2-contact-link {
+                border-top: 1px solid #ececec;
+                margin-top: 28px;
+                padding-top: 24px;
+                font-size: 15px;
+                color: #555;
+            }
+
+            .joinus2-contact-link a {
+                color: #333;
+                font-weight: 600;
+            }
+
+            @media (max-width: 991px) {
+                .joinus2-hero h1 {
+                    font-size: 54px;
+                }
+
+                .joinus2-title {
+                    font-size: 42px;
+                }
+
+                .joinus2-overview-grid,
+                .joinus2-application-grid,
+                .joinus2-role {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+
+                .joinus2-card-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            @media (max-width: 767px) {
+                .joinus2-hero {
+                    min-height: 470px;
+                }
+
+                .joinus2-hero-inner {
+                    padding: 130px 20px 90px;
+                }
+
+                .joinus2-hero h1 {
+                    font-size: 42px;
+                }
+
+                .joinus2-subtitle {
+                    font-size: 15px;
+                    line-height: 1.8;
+                }
+
+                .joinus2-title {
+                    font-size: 34px;
+                }
+
+                .joinus2-card-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .joinus2-contact-card {
+                    padding: 28px 24px 24px;
+                }
+
+                .joinus2-contact-card h3,
+                .joinus2-role h3 {
+                    font-size: 30px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-loader">
+            <div class="page-loader-inner">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+
+        <header class="header header-transparent">
+            <div class="container-fluid">
+                <div class="inner-header">
+                    <img src="assets/images/Pi_logo_final.webp" alt="PI-Lab logo">
+                </div>
+                <div class="inner-navigation collapse">
+                    <div class="inner-nav onepage-nav">
+                        <ul>
+                            <li><a href="index.html"><span class="menu-item-span">Home</span></a></li>
+                            <li><a href="people2.html"><span class="menu-item-span">People</span></a></li>
+                            <li><a href="research2.html"><span class="menu-item-span">Research</span></a></li>
+                            <li><a href="publications2.html"><span class="menu-item-span">Publications</span></a></li>
+                            <li><a href="joinus2.html"><span class="menu-item-span">Join Us</span></a></li>
+                            <li><a href="achievement.html"><span class="menu-item-span">Achievement</span></a></li>
+                            <li><a href="miscellaneous.html"><span class="menu-item-span">Miscellaneous</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="extra-nav">
+                    <ul>
+                        <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <section class="joinus2-hero">
+                <div class="container">
+                    <div class="joinus2-hero-inner">
+                        <div class="joinus2-kicker">Photography &amp; Imaging Research Group</div>
+                        <h1>Join Us</h1>
+                        <p class="joinus2-subtitle">
+                            We welcome curious researchers and students who want to grow through serious research,
+                            close mentorship, and long-term academic development.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module joinus2-section">
+                <div class="container">
+                    <div class="joinus2-overview-grid">
+                        <div>
+                            <div class="joinus2-eyebrow">Overview</div>
+                            <h2 class="joinus2-title">A research environment built for growth, depth, and collaboration.</h2>
+                            <p class="joinus2-copy">
+                                PI-Lab is interested in building a focused and supportive research environment where members can gradually develop strong technical judgment, research taste, and the ability to work on meaningful problems. We welcome people at different stages who are serious about learning, open to collaboration, and willing to invest in work that can mature into strong academic or professional outcomes.
+                            </p>
+                            <p class="joinus2-copy" style="margin-top: 18px;">
+                                Rather than treating recruitment as a single short-term opportunity, we hope to provide a setting in which members can grow through papers, projects, mentorship, internships, and future study or career paths. The goal is to help each person build a trajectory that fits both their stage and their long-term direction.
+                            </p>
+                        </div>
+                        <div class="joinus2-highlight-list">
+                            <div class="joinus2-highlight">A clear path from research training to internships, further study, and career development.</div>
+                            <div class="joinus2-highlight">A mentorship culture in which senior members guide junior members through different stages.</div>
+                            <div class="joinus2-highlight">Opportunities for impactful projects, strong publications, and long-term academic growth.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module" style="padding-top: 0; padding-bottom: 32px;">
+                <div class="container">
+                    <div class="joinus2-card-grid">
+                        <article class="joinus2-card">
+                            <div class="joinus2-icon"><i class="fas fa-microscope"></i></div>
+                            <h3>Research</h3>
+                            <p>We support sustained research training, from foundational reading and implementation to ambitious problems with publication potential.</p>
+                        </article>
+                        <article class="joinus2-card">
+                            <div class="joinus2-icon"><i class="fas fa-users"></i></div>
+                            <h3>Mentorship</h3>
+                            <p>The group grows through close collaboration, with members learning from one another across different stages of experience.</p>
+                        </article>
+                        <article class="joinus2-card">
+                            <div class="joinus2-icon"><i class="fas fa-briefcase"></i></div>
+                            <h3>Career Development</h3>
+                            <p>We value development beyond a single project and support members as they prepare for internships, jobs, and future academic steps.</p>
+                        </article>
+                        <article class="joinus2-card">
+                            <div class="joinus2-icon"><i class="fas fa-university"></i></div>
+                            <h3>Academic Pathways</h3>
+                            <p>The lab also supports applications for further study, exchange opportunities, and broader academic exploration when the timing is right.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module joinus2-section" style="padding-top: 48px;">
+                <div class="container">
+                    <div class="joinus2-eyebrow">Role-based support</div>
+                    <h2 class="joinus2-title" style="max-width: 760px; margin-bottom: 42px;">What the lab can offer to different members.</h2>
+                    <div class="joinus2-roles">
+                        <article class="joinus2-role">
+                            <div>
+                                <h3>Postdoctoral Researchers</h3>
+                                <p class="joinus2-role-copy">Postdocs are expected to develop independent research while helping shape the broader training environment of the group.</p>
+                            </div>
+                            <div>
+                                <p class="joinus2-role-copy">Postdocs can mentor PhD students, master's students, and interns. The lab can also support future academic retention opportunities and provide recommendations for strong professional positions.</p>
+                            </div>
+                        </article>
+                        <article class="joinus2-role">
+                            <div>
+                                <h3>PhD Students</h3>
+                                <p class="joinus2-role-copy">PhD students are encouraged to pursue ambitious research questions with strong publication goals and broad academic exposure.</p>
+                            </div>
+                            <div>
+                                <p class="joinus2-role-copy">The lab supports top-journal or top-conference publications, mentorship of master's students and interns, internship opportunities at major technology companies, recommendations for overseas exchange, and future job recommendations.</p>
+                            </div>
+                        </article>
+                        <article class="joinus2-role">
+                            <div>
+                                <h3>Master's Students</h3>
+                                <p class="joinus2-role-copy">Master's students can build both research depth and practical experience through sustained project participation.</p>
+                            </div>
+                            <div>
+                                <p class="joinus2-role-copy">The lab supports top-journal or top-conference publications, mentoring interns, major project opportunities, internships at leading companies, and recommendations for further study or employment.</p>
+                            </div>
+                        </article>
+                        <article class="joinus2-role">
+                            <div>
+                                <h3>Interns</h3>
+                                <p class="joinus2-role-copy">The lab welcomes both on-campus and off-campus interns who want early exposure to serious research.</p>
+                            </div>
+                            <div>
+                                <p class="joinus2-role-copy">Interns may participate in high-level research with publication potential, gain internship recommendations, join major projects, and receive guidance for recommended admission, PhD study, overseas study, or further study at other universities.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module joinus2-section joinus2-section-muted">
+                <div class="container">
+                    <div class="joinus2-application-grid">
+                        <div>
+                            <div class="joinus2-eyebrow">Application</div>
+                            <h2 class="joinus2-title">How to approach us.</h2>
+                            <div class="joinus2-note-list">
+                                <div class="joinus2-note-item">
+                                    <div class="joinus2-note-index">1</div>
+                                    <div class="joinus2-note">Prepare a concise CV with your current status, research interests, and representative work.</div>
+                                </div>
+                                <div class="joinus2-note-item">
+                                    <div class="joinus2-note-index">2</div>
+                                    <div class="joinus2-note">State clearly whether you are applying as a postdoc, PhD student, master's student, or intern.</div>
+                                </div>
+                                <div class="joinus2-note-item">
+                                    <div class="joinus2-note-index">3</div>
+                                    <div class="joinus2-note">Include publications, projects, code repositories, or portfolio materials when relevant.</div>
+                                </div>
+                                <div class="joinus2-note-item">
+                                    <div class="joinus2-note-index">4</div>
+                                    <div class="joinus2-note">Briefly explain why your interests fit the lab and what kind of research direction you hope to explore.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="joinus2-contact-card">
+                            <div class="joinus2-eyebrow">Contact</div>
+                            <h3>Open to postdocs, PhD students, master's students, and interns.</h3>
+                            <p class="joinus2-contact-copy">
+                                Both on-campus and off-campus interns are welcome. We especially value applicants who care about research quality, responsibility, collaboration, and long-term development.
+                            </p>
+                            <div class="joinus2-contact-link">
+                                For inquiries or applications, please contact
+                                <a href="mailto:lichongyi@nankai.edu.cn">lichongyi@nankai.edu.cn</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Useful links section intentionally hidden for now. -->
+
+            <footer class="footer">
+                <div class="footer-widgets">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 footer-nav">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="people2.html">People</a></li>
+                                    <li><a href="research2.html">Research</a></li>
+                                    <li><a href="publications2.html">Publications</a></li>
+                                    <li><a href="joinus2.html">Join Us</a></li>
+                                    <li><a href="achievement.html">Achievement</a></li>
+                                    <li><a href="miscellaneous.html">Miscellaneous</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 footer-image">
+                                <img src="assets/images/" alt="">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="30px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>&#960; Research Group Location: Nankai University</p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="30px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Contact :<a href="mailto:lichongyi@nankai.edu.cn"> lichongyi@nankai.edu.cn</a></p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="40px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="off-canvas-sidebar">
+            <div class="off-canvas-sidebar-wrapper">
+                <div class="off-canvas-header"><a class="off-canvas-close" href="#"><span class="ti-close"></span></a></div>
+                <div class="off-canvas-content">
+                    <aside class="widget widget-text">
+                        <div class="textwidget">
+                            <p class="text-center"><img src="assets/images/logo-light-2.webp" alt="" width="80px"></p>
+                            <p class="text-center">See how users experience your website in realtime to see changes.</p>
+                        </div>
+                    </aside>
+                    <aside class="widget widget-recent-works">
+                        <ul>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/1.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/2.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/3.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/4.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/5.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/6.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/7.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/8.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/9.webp" alt=""></a></li>
+                        </ul>
+                    </aside>
+                    <ul class="social-icons text-center">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
+
+        <script defer src="assets/js/custom/jquery.min.js"></script>
+        <script defer src="assets/js/custom/popper.min.js"></script>
+        <script defer src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <script defer src="assets/js/custom/plugins.min.js"></script>
+        <script defer src="assets/js/custom/custom.min.js"></script>
+        <script defer src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
+        <script src="assets/js/custom/pi-loader.js"></script>
+    </body>
+</html>
