@@ -1,402 +1,35 @@
-<!DOCTYPE html>
+
+<!--mixin PublicationItem(wrap_type,wrap_path,project_link,link1,link2,link3,title,abstract, ...contents)-->
+<!--mixin MiscellaneousItem(title,link, ...contents)--><!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Performance: preconnect to third-party origins -->
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+        <link rel="dns-prefetch" href="https://img.shields.io">
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="People - Photography & Imaging Research Group">
-        <title>People | Photography &amp; Imaging (&#960;) Research Group</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Photography & Imaging  (&#960) Research Group</title>
         <!-- Favicons-->
         <link rel="shortcut icon" href="assets/images/favicon.png">
         <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
         <!-- Web Fonts-->
         <link href="assets/css/googleapis-font.css" rel="stylesheet">
+        <!--link(href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet")-->
+        <!--link(href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")-->
         <!-- Plugins-->
         <link href="assets/css/plugins.min.css" rel="stylesheet">
         <!-- Template core CSS-->
         <link href="assets/css/template.css" rel="stylesheet">
-        <!-- Loader CSS-->
         <link href="assets/css/pi-loader.css" rel="stylesheet">
-        <!-- People2 custom CSS-->
-        <style>
-            /* ===== PEOPLE2 PAGE STYLES ===== */
-
-            /* Section spacing */
-            .people2-section {
-                padding: 80px 0 60px;
-            }
-            .people2-section + .people2-section {
-                padding-top: 20px;
-            }
-
-            /* Section title */
-            .people2-section-title {
-                font-family: 'Poppins', sans-serif;
-                font-size: 1.75rem;
-                font-weight: 700;
-                color: #222;
-                letter-spacing: 0.5px;
-                margin-bottom: 10px;
-                position: relative;
-                display: inline-block;
-            }
-            .people2-section-title::after {
-                content: '';
-                display: block;
-                width: 48px;
-                height: 3px;
-                background: linear-gradient(90deg, #505cfd, #a78bfa);
-                border-radius: 2px;
-                margin-top: 8px;
-            }
-            .people2-section-header {
-                margin-bottom: 48px;
-            }
-
-            /* ===== FACULTY / ADVISOR CARD ===== */
-            .faculty-card {
-                display: flex;
-                align-items: flex-start;
-                gap: 36px;
-                background: #fff;
-                border-radius: 18px;
-                box-shadow: 0 4px 24px rgba(80,92,253,0.07);
-                padding: 36px 40px;
-                margin-bottom: 32px;
-                transition: box-shadow 0.3s, transform 0.3s;
-                border: 1px solid rgba(80,92,253,0.08);
-            }
-            .faculty-card:hover {
-                box-shadow: 0 12px 40px rgba(80,92,253,0.15);
-                transform: translateY(-3px);
-            }
-
-            /* Avatar with gradient ring */
-            .faculty-avatar-wrap {
-                flex-shrink: 0;
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                padding: 3px;
-                background: linear-gradient(135deg, #505cfd 0%, #a78bfa 50%, #38bdf8 100%);
-                box-shadow: 0 4px 20px rgba(80,92,253,0.25);
-            }
-            .faculty-avatar-wrap img {
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                object-fit: cover;
-                object-position: top center;
-                border: 3px solid #fff;
-            }
-
-            /* Faculty info */
-            .faculty-info {
-                flex: 1;
-                min-width: 0;
-            }
-            .faculty-name {
-                font-family: 'Poppins', sans-serif;
-                font-size: 1.35rem;
-                font-weight: 700;
-                color: #1a1a2e;
-                margin: 0 0 4px;
-                line-height: 1.3;
-            }
-            .faculty-role {
-                font-family: 'Poppins', sans-serif;
-                font-size: 0.875rem;
-                font-weight: 600;
-                color: #505cfd;
-                margin-bottom: 12px;
-                letter-spacing: 0.3px;
-            }
-            .faculty-bio {
-                font-family: 'Poppins', sans-serif;
-                font-size: 0.875rem;
-                color: #555;
-                line-height: 1.75;
-                margin-bottom: 16px;
-                display: -webkit-box;
-                -webkit-line-clamp: 4;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-            .faculty-bio.expanded {
-                display: block;
-                -webkit-line-clamp: unset;
-            }
-            .faculty-bio-toggle {
-                font-size: 0.8rem;
-                color: #505cfd;
-                cursor: pointer;
-                background: none;
-                border: none;
-                padding: 0;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 500;
-                margin-bottom: 14px;
-                display: inline-block;
-            }
-            .faculty-bio-toggle:hover {
-                text-decoration: underline;
-            }
-
-            /* Social links */
-            .faculty-social {
-                display: flex;
-                gap: 10px;
-                flex-wrap: wrap;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            .faculty-social li a {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 34px;
-                height: 34px;
-                border-radius: 50%;
-                background: rgba(80,92,253,0.08);
-                color: #505cfd;
-                font-size: 0.875rem;
-                transition: background 0.2s, color 0.2s, transform 0.2s;
-                text-decoration: none;
-            }
-            .faculty-social li a:hover {
-                background: #505cfd;
-                color: #fff;
-                transform: scale(1.1);
-            }
-
-            /* ===== STUDENT TABS ===== */
-            .student-tabs {
-                display: flex;
-                gap: 8px;
-                flex-wrap: wrap;
-                margin-bottom: 36px;
-                border-bottom: 2px solid #f0f0f8;
-                padding-bottom: 0;
-            }
-            .student-tab-btn {
-                font-family: 'Poppins', sans-serif;
-                font-size: 0.875rem;
-                font-weight: 600;
-                color: #888;
-                background: none;
-                border: none;
-                padding: 10px 22px 12px;
-                cursor: pointer;
-                border-bottom: 3px solid transparent;
-                margin-bottom: -2px;
-                transition: color 0.2s, border-color 0.2s;
-                letter-spacing: 0.3px;
-            }
-            .student-tab-btn:hover {
-                color: #505cfd;
-            }
-            .student-tab-btn.active {
-                color: #505cfd;
-                border-bottom-color: #505cfd;
-            }
-            .student-tab-badge {
-                display: inline-block;
-                background: rgba(80,92,253,0.1);
-                color: #505cfd;
-                font-size: 0.7rem;
-                font-weight: 700;
-                border-radius: 10px;
-                padding: 1px 7px;
-                margin-left: 5px;
-                vertical-align: middle;
-            }
-            .student-tab-btn.active .student-tab-badge {
-                background: #505cfd;
-                color: #fff;
-            }
-
-            .student-tab-panel {
-                display: none;
-            }
-            .student-tab-panel.active {
-                display: block;
-            }
-
-            /* ===== STUDENT CARDS GRID ===== */
-            .student-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 24px;
-            }
-            @media (max-width: 576px) {
-                .student-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 16px;
-                }
-            }
-
-            .student-card {
-                background: #fff;
-                border-radius: 16px;
-                padding: 24px 16px 20px;
-                text-align: center;
-                border: 1.5px solid rgba(80,92,253,0.08);
-                box-shadow: 0 2px 12px rgba(80,92,253,0.05);
-                transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-                cursor: default;
-                position: relative;
-                overflow: hidden;
-            }
-            .student-card::before {
-                content: '';
-                position: absolute;
-                top: 0; left: 0; right: 0;
-                height: 3px;
-                background: linear-gradient(90deg, #505cfd, #a78bfa);
-                opacity: 0;
-                transition: opacity 0.25s;
-            }
-            .student-card:hover {
-                box-shadow: 0 8px 28px rgba(80,92,253,0.14);
-                transform: translateY(-4px);
-                border-color: rgba(80,92,253,0.2);
-            }
-            .student-card:hover::before {
-                opacity: 1;
-            }
-
-            /* Student avatar */
-            .student-avatar-wrap {
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                margin: 0 auto 14px;
-                padding: 2px;
-                background: linear-gradient(135deg, #e8eaff 0%, #c7d2fe 100%);
-                transition: background 0.25s;
-            }
-            .student-card:hover .student-avatar-wrap {
-                background: linear-gradient(135deg, #505cfd 0%, #a78bfa 100%);
-            }
-            .student-avatar-wrap img {
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                object-fit: cover;
-                object-position: top center;
-                border: 2px solid #fff;
-            }
-
-            .student-name {
-                font-family: 'Poppins', sans-serif;
-                font-size: 0.875rem;
-                font-weight: 600;
-                color: #1a1a2e;
-                margin: 0 0 6px;
-                line-height: 1.3;
-            }
-            .student-badge {
-                display: inline-block;
-                font-family: 'Poppins', sans-serif;
-                font-size: 0.7rem;
-                font-weight: 600;
-                border-radius: 20px;
-                padding: 2px 10px;
-                letter-spacing: 0.3px;
-            }
-            .badge-phd {
-                background: rgba(80,92,253,0.1);
-                color: #505cfd;
-            }
-            .badge-master {
-                background: rgba(16,185,129,0.1);
-                color: #059669;
-            }
-            .badge-visiting {
-                background: rgba(245,158,11,0.1);
-                color: #d97706;
-            }
-            .badge-alumni {
-                background: rgba(236,72,153,0.1);
-                color: #db2777;
-            }
-
-            /* ===== OUR LIFE GALLERY ===== */
-            .life-gallery {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 12px;
-            }
-            @media (max-width: 768px) {
-                .life-gallery {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-            .life-photo {
-                border-radius: 12px;
-                overflow: hidden;
-                aspect-ratio: 4 / 3;
-                position: relative;
-            }
-            .life-photo img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.4s;
-            }
-            .life-photo:hover img {
-                transform: scale(1.05);
-            }
-            .life-photo::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(to bottom, transparent 50%, rgba(80,92,253,0.3));
-                opacity: 0;
-                transition: opacity 0.3s;
-            }
-            .life-photo:hover::after {
-                opacity: 1;
-            }
-
-            /* ===== RESPONSIVE ===== */
-            @media (max-width: 768px) {
-                .faculty-card {
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                    padding: 28px 20px;
-                    gap: 20px;
-                }
-                .faculty-social {
-                    justify-content: center;
-                }
-                .faculty-avatar-wrap {
-                    width: 120px;
-                    height: 120px;
-                }
-            }
-
-            /* Page background */
-            .people2-page-bg {
-                background: #f8f8fd;
-                min-height: 100vh;
-            }
-            .people2-container {
-                background: #f8f8fd;
-            }
-
-            /* Divider */
-            .people2-divider {
-                border: none;
-                border-top: 1px solid rgba(80,92,253,0.1);
-                margin: 0 0 60px;
-            }
-        </style>
     </head>
     <body>
+
         <!-- Preloader-->
         <div class="page-loader">
             <div class="page-loader-inner">
@@ -407,20 +40,23 @@
             </div>
         </div>
         <!-- Preloader end-->
+
         <!-- Header-->
         <header class="header header-transparent">
             <div class="container-fluid">
+                <!-- LOGO-->
                 <div class="inner-header">
-                    <img src="assets/images/Pi_logo_final.webp">
+                    <!--img(src='assets/images/logo.jpg')--><img src="assets/images/Pi_logo_final.webp">
                 </div>
+                <!-- Navigation-->
                 <div class="inner-navigation collapse">
                     <div class="inner-nav onepage-nav">
                         <ul>
                             <li><a href="index.html"><span class="menu-item-span">Home</span></a></li>
-                            <li><a href="people2.html"><span class="menu-item-span">People</span></a></li>
-                            <li><a href="research2.html"><span class="menu-item-span">Research</span></a></li>
-                            <li><a href="publications2.html"><span class="menu-item-span">Publications</span></a></li>
-                            <li><a href="joinus2.html"><span class="menu-item-span">Join Us</span></a></li>
+                            <li><a href="people.html"><span class="menu-item-span">People</span></a></li>
+                            <li><a href="research.html"><span class="menu-item-span">Research</span></a></li>
+                            <li><a href="publications.html"><span class="menu-item-span">Publications</span></a></li>
+                            <li><a href="joinus.html"><span class="menu-item-span">Join Us</span></a></li>
                             <li><a href="achievement.html"><span class="menu-item-span">Achievement</span></a></li>
                             <li><a href="miscellaneous.html"><span class="menu-item-span">Miscellaneous</span></a></li>
                         </ul>
@@ -434,6 +70,7 @@
             </div>
         </header>
         <!-- Header end-->
+
         <!-- Wrapper-->
         <div class="wrapper">
             <!-- Hero-->
@@ -441,494 +78,865 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="module-title font-alt">People</h1>
-                            <div class="module-subtitle font-serif"></div>
+                            <h1 class="text-white">People</h1>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- Hero end-->
 
-            <!-- Main content -->
-            <div class="people2-container">
-
-                <!-- ===== FACULTY MEMBERS ===== -->
-                <section class="people2-section" id="faculty">
-                    <div class="container">
-                        <div class="people2-section-header">
-                            <h2 class="people2-section-title">Faculty Members</h2>
-                        </div>
-
-                        <!-- Chongyi Li -->
-                        <div class="faculty-card">
-                            <div class="faculty-avatar-wrap">
-                                <img src="assets/images/team/lichongyi_photo.webp" alt="Chongyi Li">
-                            </div>
-                            <div class="faculty-info">
-                                <h3 class="faculty-name">Chongyi Li &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">李重仪</span></h3>
-                                <div class="faculty-role">Professor &nbsp;·&nbsp; Nankai University</div>
-                                <p class="faculty-bio" id="bio-lichongyi">Chongyi Li is a Professor with the School of Computer Science, Nankai University, China. Before joining Nankai, he was a Research Assistant Professor from 2021 to 2023 with the School of Computer Science and Engineering, Nanyang Technological University, Singapore. He was a research fellow with the City University of Hong Kong (supervised by J. K. Lee Chair Prof. Sam Kwong) and Nanyang Technological University (supervised by President's Chair Prof. Chen Change Loy) from 2018 to 2021. He received his Ph.D. degree (supervised by Prof. Jichang Guo) from Tianjin University in 2018. He was also a joint training Ph.D. student (supervised by Prof. Fatih Porikli) at Australian National University, Australia.</p>
-                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-lichongyi', this)">Read more</button>
-                                <ul class="faculty-social">
-                                    <li><a href="https://pi-lab.xyz/people.html" title="Homepage"><i class="fa fa-home"></i></a></li>
-                                    <li><a href="https://github.com/Li-Chongyi/" title="GitHub"><i class="fab fa-github"></i></a></li>
-                                    <li><a href="https://scholar.google.com/citations?user=1_I0P-AAAAAJ&hl=en" title="Google Scholar"><i class="fab fa-google"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Chunle Guo -->
-                        <div class="faculty-card">
-                            <div class="faculty-avatar-wrap">
-                                <img src="assets/images/blog/guochunle.jpg" alt="Chunle Guo">
-                            </div>
-                            <div class="faculty-info">
-                                <h3 class="faculty-name">Chunle Guo &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">郭春乐</span></h3>
-                                <div class="faculty-role">Associate Professor &nbsp;·&nbsp; Nankai University</div>
-                                <p class="faculty-bio" id="bio-guochunle">Chun-Le Guo is an Associate Professor at the College of Computer Science, Nankai University, China. He received his PhD degree from Tianjin University in 2020. He conducted the Ph.D. research as a Visiting Student with the School of Electronic Engineering and Computer Science, Queen Mary University of London (QMUL), UK. Then He continued his research as a Research Associate with the Department of Computer Science, City University of Hong Kong (CityU of HK).</p>
-                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-guochunle', this)">Read more</button>
-                                <ul class="faculty-social">
-                                    <li><a href="https://scholar.google.com/citations?user=RZLYwR0AAAAJ&hl=en" title="Homepage"><i class="fa fa-home"></i></a></li>
-                                    <li><a href="https://scholar.google.com/citations?user=RZLYwR0AAAAJ&hl=en" title="Google Scholar"><i class="fab fa-google"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Jieyu Yuan -->
-                        <div class="faculty-card">
-                            <div class="faculty-avatar-wrap">
-                                <img src="assets/images/team/yuanjieyu_photo.webp" alt="Jieyu Yuan">
-                            </div>
-                            <div class="faculty-info">
-                                <h3 class="faculty-name">Jieyu Yuan &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">袁捷禹</span></h3>
-                                <div class="faculty-role">Postdoctoral Researcher &nbsp;·&nbsp; Nankai University</div>
-                                <p class="faculty-bio" id="bio-yuanjieyu">Jieyu Yuan works as a Post-Doctoral Researcher in Nankai University. His research interests include remote sensing image processing, underwater image enhancement, and object detection.</p>
-                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-yuanjieyu', this)">Read more</button>
-                                <ul class="faculty-social">
-                                    <li><a href="https://scholar.google.com/citations?user=451OzVIAAAAJ&hl=zh-CN" title="Homepage"><i class="fa fa-home"></i></a></li>
-                                    <li><a href="https://scholar.google.com/citations?user=451OzVIAAAAJ&hl=zh-CN" title="Google Scholar"><i class="fab fa-google"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <hr class="people2-divider">
-
-                <!-- ===== STUDENTS ===== -->
-                <section class="people2-section" id="students">
-                    <div class="container">
-                        <div class="people2-section-header">
-                            <h2 class="people2-section-title">Students</h2>
-                        </div>
-
-                        <!-- Tab buttons -->
-                        <div class="student-tabs">
-                            <button class="student-tab-btn active" onclick="switchTab('phd', this)">
-                                PhD <span class="student-tab-badge">22</span>
-                            </button>
-                            <button class="student-tab-btn" onclick="switchTab('master', this)">
-                                Master <span class="student-tab-badge">16</span>
-                            </button>
-                            <button class="student-tab-btn" onclick="switchTab('visiting', this)">
-                                Visiting <span class="student-tab-badge">18</span>
-                            </button>
-                            <button class="student-tab-btn" onclick="switchTab('alumni', this)">
-                                Alumni <span class="student-tab-badge">6</span>
-                            </button>
-                        </div>
-
-                        <!-- PhD Tab -->
-                        <div class="student-tab-panel active" id="tab-phd">
-                            <div class="student-grid">
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zhengpeng Duan"></div>
-                                    <div class="student-name">Zhengpeng Duan</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Linghao Han"></div>
-                                    <div class="student-name">Linghao Han</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xin Jin"></div>
-                                    <div class="student-name">Xin Jin</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Ruiqi Wu"></div>
-                                    <div class="student-name">Ruiqi Wu</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Chujie Qin"></div>
-                                    <div class="student-name">Chujie Qin</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Jiayi Fu"></div>
-                                    <div class="student-name">Jiayi Fu</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Shuhao Han"></div>
-                                    <div class="student-name">Shuhao Han</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Chenyuang Wu"></div>
-                                    <div class="student-name">Chenyuang Wu</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Qianqian Zhao"></div>
-                                    <div class="student-name">Qianqian Zhao</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xuhao Liang"></div>
-                                    <div class="student-name">Xuhao Liang</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zilong Zhang"></div>
-                                    <div class="student-name">Zilong Zhang</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Jihong Li"></div>
-                                    <div class="student-name">Jihong Li</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Wenxin Zou"></div>
-                                    <div class="student-name">Wenxin Zou</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Bin Chai"></div>
-                                    <div class="student-name">Bin Chai</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Linhan Huang"></div>
-                                    <div class="student-name">Linhan Huang</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuanlin Zhang"></div>
-                                    <div class="student-name">Yuanlin Zhang</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Quan Shi"></div>
-                                    <div class="student-name">Quan Shi</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Qiyu Rong"></div>
-                                    <div class="student-name">Qiyu Rong</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Haorong Han"></div>
-                                    <div class="student-name">Haorong Han</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Ting Li"></div>
-                                    <div class="student-name">Ting Li</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yanxin Cai"></div>
-                                    <div class="student-name">Yanxin Cai</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Shiying Zhang"></div>
-                                    <div class="student-name">Shiying Zhang</div>
-                                    <span class="student-badge badge-phd">PhD</span>
-                                </div>                                
-                            </div>
-                        </div>
-
-                        <!-- Master Tab -->
-                        <div class="student-tab-panel" id="tab-master">
-                            <div class="student-grid">
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Lina Lei"></div>
-                                    <div class="student-name">Lina Lei</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Siyu Liu"></div>
-                                    <div class="student-name">Siyu Liu</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuang Meng"></div>
-                                    <div class="student-name">Yuang Meng</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Tianyi Zhang"></div>
-                                    <div class="student-name">Tianyi Zhang</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yujun Li"></div>
-                                    <div class="student-name">Yujun Li</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yilin Mi"></div>
-                                    <div class="student-name">Yilin Mi</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Ruijie Dong"></div>
-                                    <div class="student-name">Ruijie Dong</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xianshun Liu"></div>
-                                    <div class="student-name">Xianshun Liu</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zewei Chang"></div>
-                                    <div class="student-name">Zewei Chang</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Wenjie Liao"></div>
-                                    <div class="student-name">Wenjie Liao</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Siying Liu"></div>
-                                    <div class="student-name">Siying Liu</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Han Yang"></div>
-                                    <div class="student-name">Han Yang</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuwei Wen"></div>
-                                    <div class="student-name">Yuwei Wen</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuheng Jia"></div>
-                                    <div class="student-name">Yuheng Jia</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yi Ren"></div>
-                                    <div class="student-name">Yi Ren</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Mengyu Ren"></div>
-                                    <div class="student-name">Mengyu Ren</div>
-                                    <span class="student-badge badge-master">Master</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Visiting Tab -->
-                        <div class="student-tab-panel" id="tab-visiting">
-                            <div class="student-grid">
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Ziheng Zhang"></div>
-                                    <div class="student-name">Ziheng Zhang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Jiachen Fu"></div>
-                                    <div class="student-name">Jiachen Fu</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Han Yang"></div>
-                                    <div class="student-name">Jiaji Liu</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Wenxuan Shang"></div>
-                                    <div class="student-name">Wenxuan Shang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Xiaoke Xie"></div>
-                                    <div class="student-name">Xiaoke Xie</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zekai Huang"></div>
-                                    <div class="student-name">Zekai Huang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Weiran Zhang"></div>
-                                    <div class="student-name">Weiran Zhang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yihao Shen"></div>
-                                    <div class="student-name">Yihao Shen</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Yihang Zhang"></div>
-                                    <div class="student-name">Yihang Zhang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Jiaxuan Jiang"></div>
-                                    <div class="student-name">Jiaxuan Jiang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Shuhao Zhang"></div>
-                                    <div class="student-name">Shuhao Zhang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Yifan Liu"></div>
-                                    <div class="student-name">Yifan Liu</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Xinyi Xue"></div>
-                                    <div class="student-name">Xinyi Xue</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zesen Lin"></div>
-                                    <div class="student-name">Zesen Lin</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xiaoya Tang"></div>
-                                    <div class="student-name">Xiaoya Tang</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Xinrui Song"></div>
-                                    <div class="student-name">Xinrui Song</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                 <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Yuzhe Zhao"></div>
-                                    <div class="student-name">Yuzhe Zhao</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>
-                                 <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Zhuoxing Mu"></div>
-                                    <div class="student-name">Zhuoxing Mu</div>
-                                    <span class="student-badge badge-visiting">Visiting</span>
-                                </div>                                
-                            </div>
-                        </div>
-
-                        <!-- Alumni Tab -->
-                        <div class="student-tab-panel" id="tab-alumni">
-                            <div class="student-grid">
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Yifan Chen"></div>
-                                    <div class="student-name">Yifan Chen</div>
-                                    <span class="student-badge badge-alumni">Master@University of Cambridge</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Jingyi Zhang"></div>
-                                    <div class="student-name">Jingyi Zhang</div>
-                                    <span class="student-badge badge-alumni">Master@University of California San Diego</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Qi Zhu"></div>
-                                    <div class="student-name">Qi Zhu</div>
-                                    <span class="student-badge badge-alumni">Tencent</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Wenchao Li"></div>
-                                    <div class="student-name">Wenchao Li</div>
-                                    <span class="student-badge badge-alumni">PhD@Beihang University</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/boy.webp" alt="Weilei Wen"></div>
-                                    <div class="student-name">Weilei Wen</div>
-                                    <span class="student-badge badge-alumni">AP@Shantou University</span>
-                                </div>
-                                <div class="student-card">
-                                    <div class="student-avatar-wrap"><img src="assets/images/team/girl.webp" alt="Xinni Zhang"></div>
-                                    <div class="student-name">Xinni Zhang</div>
-                                    <span class="student-badge badge-alumni">Agricultural Bank of China</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <hr class="people2-divider">
-
-                <!-- ===== ADVISORS ===== -->
-                <section class="people2-section" id="advisors">
-                    <div class="container">
-                        <div class="people2-section-header">
-                            <h2 class="people2-section-title">Advisors</h2>
-                        </div>
-
-                        <!-- Ming-Ming Cheng -->
-                        <div class="faculty-card">
-                            <div class="faculty-avatar-wrap">
-                                <img src="assets/images/team/CMM.webp" alt="Ming-Ming Cheng">
-                            </div>
-                            <div class="faculty-info">
-                                <h3 class="faculty-name">Ming-Ming Cheng &nbsp;<span style="font-weight:400;font-size:1rem;color:#888;">程明明</span></h3>
-                                <div class="faculty-role">Professor &nbsp;·&nbsp; Nankai University</div>
-                                <p class="faculty-bio" id="bio-cmm">Ming-Ming Cheng is a professor and doctoral supervisor at Nankai University, and the director of the Media Computing Lab. He received the IEEE TPAMI Distinguished Reviewer award, the IBM Global SUR award, etc. He is a senior member of the IEEE and on the editorial boards of the IEEE TPAMI and IEEE TIP.</p>
-                                <button class="faculty-bio-toggle" onclick="toggleBio('bio-cmm', this)">Read more</button>
-                                <ul class="faculty-social">
-                                    <li><a href="https://mmcheng.net/cmm/" title="Homepage"><i class="fa fa-home"></i></a></li>
-                                    <li><a href="https://mmcheng.net/cmm/" title="GitHub"><i class="fab fa-github"></i></a></li>
-                                    <li><a href="https://scholar.google.com/citations?user=huWpVyEAAAAJ" title="Google Scholar"><i class="fab fa-google"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <hr class="people2-divider">
-
-                <!-- ===== OUR LIFE ===== -->
-                <section class="people2-section" id="our-life">
-                    <div class="container">
-                        <div class="people2-section-header">
-                            <h2 class="people2-section-title">Our Life</h2>
-                        </div>
-                        <div class="life-gallery">
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-1.webp" alt="CVPR 2023"></div>
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-2.webp" alt="CVPR 2023"></div>
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-3.webp" alt="CVPR 2023"></div>
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/CVPR23-4.webp" alt="CVPR 2023"></div>
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/Valse23.webp" alt="Valse 2023"></div>
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/SLab.webp" alt="Lab"></div>
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/party24-1.webp" alt="Party 2024"></div>
-                            <div class="life-photo"><img loading="lazy" src="assets/images/ourlife/party24-2.webp" alt="Party 2024"></div>
+            <!-- Faculty Members-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2><strong> Members</strong></h2>
                         </div>
                     </div>
-                </section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="space" data-MY="60px"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- People list-->
+                            <article class="person-inform row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="person-preview"><img loading="lazy" src="assets/images/team/lichongyi_photo.webp" alt=""></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="person-wrapper">
+                                        <div class="person-header">
+                                            <h1 class="person-title">Chongyi Li (李重仪)</h1>
+                                            <div class="person-meta">Professor @ Nankai university
+                                            </div>
+                                        </div>
+                                        <div class="person-content">
+                                            <p>Chongyi Li is a Professor with the School of Computer Science, Nankai University, China. Before joining Naikai, he was a Research Assistant Professor from 2021 to 2023 with the School of Computer Science and Engineering, Nanyang Technological University, Singapore. He was a research fellow with the City University of Hong Kong （supervised by J. K. Lee Chair Prof. Sam Kwong） and Nanyang Technological University （supervised by President's Chair Prof. Chen Change Loy） from 2018 to 2021. He received his Ph.D. degree （supervised by Prof. Jichang Guo） from Tianjin University in 2018. He was also a joint training Ph.D. student （supervised by Prof. Fatih Porikli） at Australian National University, Australia.</p>
+                                        </div>
+                                        <div class="person-footer">
+                                            <ul class="text-lg-left text-center">
+                                                <li><a href="https://pi-lab.xyz/people.html"><i class="fa fa-home"></i></a></li>
+                                                <li><a href="https://github.com/Li-Chongyi/"><i class="fab fa-github"></i></a></li>
+                                                <li><a href="https://scholar.google.com/citations?user=1_I0P-AAAAAJ&amp;hl=en"><i class="fab fa-google"></i></a></li>
+                                                <li><a href=" "><i class="fab fa-twitter-square"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="person-inform row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="person-preview"><img loading="lazy" src="assets/images/blog/guochunle.jpg" alt=""></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="person-wrapper">
+                                        <div class="person-header">
+                                            <h1 class="person-title">Chunle Guo (郭春乐)</h1>
+                                            <div class="person-meta">Associate Professor @ Nankai University
+                                            </div>
+                                        </div>
+                                        <div class="person-content">
+                                            <p>Chun-Le Guo is a Associate Professor at the College of Computer Science, Nankai University, China. He received his PhD degree from Tianjin University in 2020. He conducted the Ph.D. research as a Visiting Student with the School of Electronic Engineering and Computer Science, Queen Mary University of London (QMUL), UK. Then He continued his research as a Research Associate with the Department of Computer Science, City University of Hong Kong (CityU of HK).</p>
+                                        </div>
+                                        <div class="person-footer">
+                                            <ul class="text-lg-left text-center">
+                                                <li><a href="https://scholar.google.com/citations?user=RZLYwR0AAAAJ&amp;hl=en"><i class="fa fa-home"></i></a></li>
+                                                <li><a href="https://scholar.google.com/citations?user=RZLYwR0AAAAJ&amp;hl=en"><i class="fab fa-github"></i></a></li>
+                                                <li><a href="https://scholar.google.com/citations?user=RZLYwR0AAAAJ&amp;hl=en"><i class="fab fa-google"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="person-inform row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="person-preview"><img loading="lazy" src="assets/images/team/yuanjieyu_photo.webp" alt=""></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="person-wrapper">
+                                        <div class="person-header">
+                                            <h1 class="person-title">Jieyu Yuan (袁捷禹)</h1>
+                                            <div class="person-meta">Postdoc @ Nankai university
+                                            </div>
+                                        </div>
+                                        <div class="person-content">
+                                            <p>Jieyu Yuan works as a Post-Doctoral Researcher in Nankai University. His research interests include remote sensing image processing, underwater image enhancement, and object detection.</p>
+                                        </div>
+                                        <div class="person-footer">
+                                            <ul class="text-lg-left text-center">
+                                                <li><a href="https://scholar.google.com/citations?user=451OzVIAAAAJ&hl=zh-CN"><i class="fa fa-home"></i></a></li>
+                                                <li><a href="https://scholar.google.com/citations?user=451OzVIAAAAJ&hl=zh-CN"><i class="fab fa-github"></i></a></li>
+                                                <li><a href="https://scholar.google.com/citations?user=451OzVIAAAAJ&hl=zh-CN"><i class="fab fa-google"></i></a></li>
+                                                <li><a href=" "><i class="fab fa-twitter-square"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Faculty Members end-->
 
-            </div>
-            <!-- Main content end -->
+           <!-- Students-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2><strong>Students</strong></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="space" data-MY="60px"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Zhengpeng Duan</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Linghao Han</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Xin Jin</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Ruiqi Wu</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Chujie Qin</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/girl.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Jiayi Fu</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Shuhao Han</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Chenyuang Wu</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/girl.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Qianqian Zhao</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Xuhao Liang</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Zilong Zhang</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Jihong Li</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/girl.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Wenxin Zou</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Bin Chai</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/girl.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Wenxin Zou</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/girl.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Linhan Huang</h6>
+                                            <div class="team-role">PhD</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/girl.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Siying Liu</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/girl.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Lina Lei</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Siyu Liu</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Yuang Meng</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Tianyi Zhang</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Yujun Li</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Yilin Mi</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Ruijie Dong</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Xianshun Liu</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Zewei Chang</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Wenjie Liao</h6>
+                                            <div class="team-role">Master</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Ziheng Zhang</h6>
+                                            <div class="team-role">Undergrad</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Jiachen Fu</h6>
+                                            <div class="team-role">Undergrad</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Han Yang</h6>
+                                            <div class="team-role">Undergrad</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Yuhang Jia</h6>
+                                            <div class="team-role">Undergrad</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Yuwei Wen</h6>
+                                            <div class="team-role">Undergrad</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Jiaji Liu</h6>
+                                            <div class="team-role">Undergrad</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-image"><img loading="lazy" src="assets/images/team/boy.webp" alt="">
+                                    <div class="team-wrap">
+                                        <div class="team-content">
+                                            <h6 class="team-name">Yuanlin Zhang</h6>
+                                            <div class="team-role">Visiting</div>
+                                        </div>
+                                        <div class="team-content-social">
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Students end-->           
+
+            <!-- Advisors-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2><strong>Advisors</strong></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="space" data-MY="60px"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- People list-->
+                            <article class="person-inform row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="person-preview"><img loading="lazy" src="assets/images/team/CMM.webp" alt=""></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="person-wrapper">
+                                        <div class="person-header">
+                                            <h1 class="person-title">Ming-Ming Cheng (程明明)</h1>
+                                            <div class="person-meta">Professor @ Nankai University
+                                            </div>
+                                        </div>
+                                        <div class="person-content">
+                                            <p>Ming-Ming Cheng is a professor at the College of Computer Science, Nankai University, leading the Media Computing Lab. He received his Ph.D. degree from Tsinghua University in 2012 and then worked with Prof. Philip Torr in Oxford for 2 years. His research interests include computer vision and computer graphics. He has published over 100 papers in leading journals and conferences, such as IEEE TPAMI, ACM TOG, IEEE CVPR, etc. Many of his algorithms have become quite popular in the community, receiving more than 35,000+ paper citations. He received several research awards, including ACM China Rising Star Award, the IBM Global SUR award, etc. He is a senior member of the IEEE and on the editorial boards of the IEEE TPAMI and IEEE TIP. </p>
+                                        </div>
+                                        <div class="person-footer">
+                                            <ul class="text-lg-left text-center">
+                                                <li><a href="https://mmcheng.net/cmm/"><i class="fa fa-home"></i></a></li>
+                                                <li><a href="https://mmcheng.net/cmm/"><i class="fab fa-github"></i></a></li>
+                                                <li><a href="https://scholar.google.com/citations?user=huWpVyEAAAAJ"><i class="fab fa-google"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Advisors end-->
+
+            <!-- Our Life-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-9 m-auto text-center">
+                            <h2><strong>Our Life</strong></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="space" data-MY="60px"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/CVPR23-1.webp" alt=""></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/CVPR23-2.webp" alt=""></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/CVPR23-3.webp" alt=""></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/CVPR23-4.webp" alt=""></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/Valse23.webp" alt=""></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/SLab.webp" alt=""></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/party24-1.webp" alt=""></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="photo-box"><img loading="lazy" class="img-fluid photo" src="assets/images/ourlife/party24-2.webp" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="img-preview"><img src="#" id="imgPreview"></div>
+
 
             <!-- Footer-->
             <footer class="footer">
@@ -938,23 +946,18 @@
                             <div class="col-md-12 footer-nav">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="people2.html">People</a></li>
+                                    <li><a href="people.html">People</a></li>
                                     <li><a href="research.html">Research</a></li>
-                                    <li><a href="publications2.html">Publications</a></li>
-                                    <li><a href="joinus2.html">Join Us</a></li>
-                                    <li><a href="achievement.html">Achievement</a></li>
+                                    <li><a href="publications.html">Publications</a></li>
+                                    <li><a href="joinus.html">Join Us</a></li>
+                                    <li><a href="achievement.html">Achievement </a></li>
                                     <li><a href="miscellaneous.html">Miscellaneous</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="space" data-MY="30px"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <p>&#960; Research Group Location: Nankai University</p>
+                            <div class="col-md-12 footer-image">
+                                <!--img(src="assets/images/logo.jpg" alt="")--><img src="assets/images/" alt="">
                             </div>
                             <div class="col-md-12">
                                 <div class="space" data-MY="30px"></div>
@@ -962,7 +965,15 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <p>Contact: <a href="#">lichongyi@nankai.edu.cn</a></p>
+                                <p> &#960 Research Group Location: Nankai University</p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="space" data-MY="30px"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Contact :<a href="#"> lichongyi@nankai.edu.cn</a></p>
                             </div>
                             <div class="col-md-12">
                                 <div class="space" data-MY="40px"></div>
@@ -974,7 +985,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="copyright"></div>
+                                <div class="copyright">
+                                    <!--p © 2018 Boomerang, All Rights Reserved. Design with love by #[a(href="#") 2theme]-->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -983,60 +996,54 @@
             <!-- Footer end-->
         </div>
         <!-- Wrapper end-->
-
         <!-- Off canvas-->
         <div class="off-canvas-sidebar">
             <div class="off-canvas-sidebar-wrapper">
                 <div class="off-canvas-header"><a class="off-canvas-close" href="#"><span class="ti-close"></span></a></div>
                 <div class="off-canvas-content">
+                    <!-- Text widget-->
                     <aside class="widget widget-text">
                         <div class="textwidget">
                             <p class="text-center"><img src="assets/images/logo-light-2.webp" alt="" width="80px"></p>
+                            <p class="text-center">See how users experience your website in realtime to see changes.</p>
                         </div>
                     </aside>
+                    <!-- Recent portfolio widget-->
+                    <aside class="widget widget-recent-works">
+                        <ul>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/1.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/2.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/3.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/4.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/5.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/6.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/7.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/8.webp" alt=""></a></li>
+                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/9.webp" alt=""></a></li>
+                        </ul>
+                    </aside>
+                    <!-- Social Icons-->
+                    <ul class="social-icons text-center">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
         <!-- Off canvas end-->
 
-        <a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
+        <!-- To top button--><a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
 
         <!-- Scripts-->
         <script defer src="assets/js/custom/jquery.min.js"></script>
         <script defer src="assets/js/custom/popper.min.js"></script>
         <script defer src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <!--script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q")-->
         <script defer src="assets/js/custom/plugins.min.js"></script>
         <script defer src="assets/js/custom/custom.min.js"></script>
         <script defer src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
-        <script src="assets/js/custom/pi-loader.js"></script>
-
-        <script>
-            // Tab switching
-            function switchTab(tabId, btn) {
-                // Hide all panels
-                document.querySelectorAll('.student-tab-panel').forEach(function(p) {
-                    p.classList.remove('active');
-                });
-                // Deactivate all buttons
-                document.querySelectorAll('.student-tab-btn').forEach(function(b) {
-                    b.classList.remove('active');
-                });
-                // Show selected panel
-                document.getElementById('tab-' + tabId).classList.add('active');
-                btn.classList.add('active');
-            }
-
-            // Bio expand/collapse
-            function toggleBio(bioId, btn) {
-                var bio = document.getElementById(bioId);
-                if (bio.classList.contains('expanded')) {
-                    bio.classList.remove('expanded');
-                    btn.textContent = 'Read more';
-                } else {
-                    bio.classList.add('expanded');
-                    btn.textContent = 'Show less';
-                }
-            }
-        </script>
+            <script src="assets/js/custom/pi-loader.js"></script>
     </body>
 </html>

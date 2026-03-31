@@ -1,35 +1,267 @@
-
-<!--mixin PublicationItem(wrap_type,wrap_path,project_link,link1,link2,link3,title,abstract, ...contents)-->
-<!--mixin MiscellaneousItem(title,link, ...contents)--><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Performance: preconnect to third-party origins -->
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
-        <link rel="dns-prefetch" href="https://img.shields.io">
-
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+        <meta name="description" content="Research areas of Photography & Imaging (π) Research Group at Nankai University">
         <meta name="author" content="">
-        <title>Photography & Imaging  (&#960) Research Group</title>
+        <title>Research | Photography &amp; Imaging (&#960;) Research Group</title>
         <!-- Favicons-->
         <link rel="shortcut icon" href="assets/images/favicon.png">
         <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
         <!-- Web Fonts-->
         <link href="assets/css/googleapis-font.css" rel="stylesheet">
-        <!--link(href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet")-->
-        <!--link(href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")-->
         <!-- Plugins-->
         <link href="assets/css/plugins.min.css" rel="stylesheet">
         <!-- Template core CSS-->
         <link href="assets/css/template.css" rel="stylesheet">
         <link href="assets/css/pi-loader.css" rel="stylesheet">
+
+        <style>
+            /* ===== Research2 Custom Styles ===== */
+
+            /* --- Overview Nav Cards --- */
+            .r2-overview {
+                background: #f8f9fa;
+                padding: 52px 0 44px;
+                border-bottom: 1px solid #e8eaed;
+            }
+            .r2-overview-title {
+                text-align: center;
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 2.5px;
+                text-transform: uppercase;
+                color: #999;
+                margin-bottom: 32px;
+            }
+            .r2-nav-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 16px;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+            @media (max-width: 992px) {
+                .r2-nav-grid { grid-template-columns: repeat(3, 1fr); }
+            }
+            @media (max-width: 576px) {
+                .r2-nav-grid { grid-template-columns: repeat(2, 1fr); }
+            }
+            .r2-nav-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 12px 16px;
+                border-radius: 12px;
+                background: #fff;
+                border: 1.5px solid #e8eaed;
+                text-decoration: none;
+                color: inherit;
+                transition: all 0.22s ease;
+                cursor: pointer;
+            }
+            .r2-nav-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+                text-decoration: none;
+                color: inherit;
+            }
+            .r2-nav-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                margin-bottom: 10px;
+                color: #fff;
+            }
+            .r2-nav-label {
+                font-size: 12px;
+                font-weight: 600;
+                text-align: center;
+                color: #333;
+                line-height: 1.4;
+            }
+            .r2-nav-count {
+                font-size: 11px;
+                color: #999;
+                margin-top: 4px;
+            }
+
+            /* --- Research Area Section --- */
+            .r2-area {
+                padding: 72px 0 56px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            .r2-area:last-of-type { border-bottom: none; }
+            .r2-area:nth-child(even) { background: #fafbfc; }
+
+            .r2-area-inner {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 32px;
+                display: grid;
+                grid-template-columns: 420px 1fr;
+                gap: 56px;
+                align-items: start;
+            }
+            @media (max-width: 900px) {
+                .r2-area-inner {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                }
+            }
+
+            /* Flip layout for even sections */
+            .r2-area:nth-child(even) .r2-area-inner {
+                grid-template-columns: 1fr 420px;
+            }
+            .r2-area:nth-child(even) .r2-area-visual { order: 2; }
+            .r2-area:nth-child(even) .r2-area-content { order: 1; }
+            @media (max-width: 900px) {
+                .r2-area:nth-child(even) .r2-area-inner {
+                    grid-template-columns: 1fr;
+                }
+                .r2-area:nth-child(even) .r2-area-visual { order: 1; }
+                .r2-area:nth-child(even) .r2-area-content { order: 2; }
+            }
+
+            .r2-area-visual img {
+                width: 100%;
+                border-radius: 14px;
+                box-shadow: 0 6px 28px rgba(0,0,0,0.10);
+                display: block;
+            }
+
+            .r2-area-header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 16px;
+            }
+            .r2-area-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+            .r2-area-title {
+                font-size: 22px;
+                font-weight: 700;
+                color: #1a1a2e;
+                margin: 0;
+                line-height: 1.3;
+            }
+            .r2-area-desc {
+                font-size: 14.5px;
+                color: #555;
+                line-height: 1.75;
+                margin-bottom: 18px;
+            }
+
+            /* Keywords */
+            .r2-keywords {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 7px;
+                margin-bottom: 24px;
+            }
+            .r2-kw {
+                font-size: 11.5px;
+                font-weight: 600;
+                padding: 4px 10px;
+                border-radius: 20px;
+                background: #f0f2f5;
+                color: #555;
+                letter-spacing: 0.3px;
+            }
+
+            /* Representative Papers */
+            .r2-papers-label {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 1.8px;
+                text-transform: uppercase;
+                color: #aaa;
+                margin-bottom: 12px;
+            }
+            .r2-paper-item {
+                display: flex;
+                align-items: baseline;
+                gap: 10px;
+                padding: 9px 0;
+                border-bottom: 1px solid #f0f0f0;
+                font-size: 13.5px;
+                color: #333;
+                line-height: 1.5;
+            }
+            .r2-paper-item:last-child { border-bottom: none; }
+            .r2-paper-venue {
+                flex-shrink: 0;
+                font-size: 11px;
+                font-weight: 700;
+                padding: 2px 8px;
+                border-radius: 4px;
+                color: #fff;
+            }
+            .r2-paper-title {
+                flex: 1;
+                font-size: 13px;
+                color: #444;
+            }
+
+            /* View All Button */
+            .r2-view-all {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                margin-top: 22px;
+                padding: 9px 22px;
+                border-radius: 8px;
+                font-size: 13px;
+                font-weight: 600;
+                color: #fff;
+                text-decoration: none;
+                transition: opacity 0.18s, transform 0.18s;
+            }
+            .r2-view-all:hover {
+                opacity: 0.88;
+                transform: translateX(3px);
+                text-decoration: none;
+                color: #fff;
+            }
+
+            /* Color Palette */
+            .color-llv   { background: #3b82f6; }
+            .color-ci    { background: #7c3aed; }
+            .color-ige   { background: #f97316; }
+            .color-lm    { background: #ec4899; }
+            .color-su    { background: #10b981; }
+            .color-3d    { background: #06b6d4; }
+
+            .border-llv  { border-color: #3b82f6 !important; }
+            .border-ci   { border-color: #7c3aed !important; }
+            .border-ige  { border-color: #f97316 !important; }
+            .border-lm   { border-color: #ec4899 !important; }
+            .border-su   { border-color: #10b981 !important; }
+            .border-3d   { border-color: #06b6d4 !important; }
+
+            /* Anchor offset for sticky header */
+            .r2-anchor {
+                display: block;
+                position: relative;
+                top: -80px;
+                visibility: hidden;
+            }
+        </style>
     </head>
     <body>
-
         <!-- Preloader-->
         <div class="page-loader">
             <div class="page-loader-inner">
@@ -39,24 +271,21 @@
                 </div>
             </div>
         </div>
-        <!-- Preloader end-->
 
         <!-- Header-->
         <header class="header header-transparent">
             <div class="container-fluid">
-                <!-- LOGO-->
                 <div class="inner-header">
-                    <!--img(src='assets/images/logo.jpg')--><img src="assets/images/Pi_logo_final.webp">
+                    <img src="assets/images/Pi_logo_final.webp">
                 </div>
-                <!-- Navigation-->
                 <div class="inner-navigation collapse">
                     <div class="inner-nav onepage-nav">
                         <ul>
                             <li><a href="index.html"><span class="menu-item-span">Home</span></a></li>
-                            <li><a href="people2.html"><span class="menu-item-span">People</span></a></li>
+                            <li><a href="people.html"><span class="menu-item-span">People</span></a></li>
                             <li><a href="research.html"><span class="menu-item-span">Research</span></a></li>
-                            <li><a href="publications2.html"><span class="menu-item-span">Publications</span></a></li>
-                            <li><a href="joinus2.html"><span class="menu-item-span">Join Us</span></a></li>
+                            <li><a href="publications.html"><span class="menu-item-span">Publications</span></a></li>
+                            <li><a href="joinus.html"><span class="menu-item-span">Join Us</span></a></li>
                             <li><a href="achievement.html"><span class="menu-item-span">Achievement</span></a></li>
                             <li><a href="miscellaneous.html"><span class="menu-item-span">Miscellaneous</span></a></li>
                         </ul>
@@ -69,110 +298,358 @@
                 </div>
             </div>
         </header>
-        <!-- Header end-->
 
         <!-- Wrapper-->
         <div class="wrapper">
-            <!-- Hero-->
+
+            <!-- Hero -->
             <section class="module-cover text-center" data-background="assets/images/research_logo1.jpg" data-overlay="0.5">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="text-white">Research</h1>
+                            <p class="text-white" style="font-size:16px;margin-top:10px;opacity:0.85;">Photography &amp; Imaging (π) Research Group · Nankai University</p>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Hero end
 
-            <!-- Research-->
-            <section class="module">
-                <div class="container">
-                    
-                    <!--<div class="row">
-                        <div class="col-md-4 text-center">
-                            <video src="assets/video/research-underwater_image_enhancement.mp4" type="video/mp4" width="100%" controls autoplay="autoplay" loop muted></video>
-                            <h6 class="research-title">Underwater Image Enhancement</h6>
-                        </div>
-                        <div class="col-md-8 research-content">
-                            <p>Underwater image enhancement refers to the process of improving the quality and visibility of images captured underwater. When an image is taken underwater, it is often affected by various factors such as water turbidity, scattering of light, color distortion, and reduced contrast. These factors result in images with poor visibility, low contrast, and a bluish or greenish tint. Underwater image enhancement techniques aim to mitigate these issues and enhance the visual quality of underwater images.</p>
-                            <p>We focus on the research of underwater image enhancement and investigate the relationship between underwater image enhancement and other underwater vision tasks such as underwater object detection. </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="space" data-MY="40px"></div>
-                        </div>
-                    </div>-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="space" data-MY="40px">           </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 text-center"><img loading="lazy" src="assets/images/publication/research_image_enhancement.webp" alt="">
-                            <h6 class="research-title">Universal Enhancement and Restoration </h6>
-                        </div>
-                        <div class="col-md-8 research-content">
-                            <p>Universal image enhancement and restoration techniques are designed to significantly improve image quality across various applications. These methods address key issues such as super-resolution, denoising, dehazing, and rain removal, enhancing clarity and detail. Deblurring and face restoration restore sharpness and accuracy, while automatic photo retouching simplifies the enhancement process. Low-light enhancement and underwater restoration ensure high-quality visuals in challenging environments. Exposure correction and color correction refine lighting and hues for true-to-life representation. All-in-one restoration combines these solutions into a seamless toolset, enabling clearer, more accurate images for diverse industries, from healthcare to entertainment.</p>
-                            <p>We focus on the research of super-resolution, denoising, deblurring, dehazing, deraining, face restoration, retouching, low-lignt enhancement, underwater enhancement, exposure correction, color correction, and all-in-one restoration.</p>
-                        </div>
-                    </div>
+            <!-- Overview Navigation -->
+            <section class="r2-overview">
+                <div class="r2-overview-title">Research Areas</div>
+                <div class="r2-nav-grid">
+                    <a class="r2-nav-card border-llv" href="#llv">
+                        <div class="r2-nav-icon color-llv"><i class="fas fa-magic"></i></div>
+                        <div class="r2-nav-label">Low-level Vision</div>
+                        <div class="r2-nav-count"></div>
+                    </a>
+                    <a class="r2-nav-card border-ci" href="#ci">
+                        <div class="r2-nav-icon color-ci"><i class="fas fa-camera"></i></div>
+                        <div class="r2-nav-label">Computational Imaging</div>
+                        <div class="r2-nav-count"></div>
+                    </a>
+                    <a class="r2-nav-card border-ige" href="#ige">
+                        <div class="r2-nav-icon color-ige"><i class="fas fa-paint-brush"></i></div>
+                        <div class="r2-nav-label">Image Generation &amp; Editing</div>
+                        <div class="r2-nav-count"></div>
+                    </a>
+                    <a class="r2-nav-card border-lm" href="#lm">
+                        <div class="r2-nav-icon color-lm"><i class="fas fa-brain"></i></div>
+                        <div class="r2-nav-label">LLM / VLM / VLA</div>
+                        <div class="r2-nav-count"></div>
+                    </a>
+                    <a class="r2-nav-card border-su" href="#su">
+                        <div class="r2-nav-icon color-su"><i class="fas fa-eye"></i></div>
+                        <div class="r2-nav-label">Scene Understanding</div>
+                        <div class="r2-nav-count"></div>
+                    </a>
+                    <a class="r2-nav-card border-3d" href="#3d">
+                        <div class="r2-nav-icon color-3d"><i class="fas fa-cube"></i></div>
+                        <div class="r2-nav-label">3D</div>
+                        <div class="r2-nav-count"></div>
+                    </a>
+                </div>
+            </section>
 
-                    <div class="row">
-                        <div class="col-md-4 text-center"><img loading="lazy" src="assets/images/publication/research_computational_imaging.webp" alt="">
-                            <h6 class="research-title">Computational Imaging</h6>
-                        </div>
-                        <div class="col-md-8 research-content">
-                            <p>Computational imaging techniques focus on optimizing image quality through advanced processing methods. Aberration correction enhances optical precision, while RAW denoising and RAW enhancement preserve and elevate original image details. RAW multi-view synthesis merges perspectives for richer, more dynamic visuals. SDR to HDR conversion and UHDR reconstruction unlock higher dynamic ranges, delivering stunning contrast and clarity. Camera calibration ensures accurate capture, while flare and ghost removal improve visual integrity. Under-display image restoration restores hidden details, offering a comprehensive approach to enhancing image capture and presentation in diverse applications. </p>
-                            <p>We focus on the research of aberration correction, RAW denoising and enhancement, RAW multi-view synthesis, SDR2HDR, UHDR reconstruction, camera calibration, flare and ghost removal, and under-display image restoration..</p>
-                        </div>
+            <!-- ===== Low-level Vision ===== -->
+            <span class="r2-anchor" id="llv"></span>
+            <section class="r2-area">
+                <div class="r2-area-inner">
+                    <div class="r2-area-visual">
+                        <video autoplay loop muted playsinline
+                               poster="assets/images/blog/UHD_LL_dataset.png"
+                               style="width:100%; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.10); display:block;">
+                            <source src="assets/video/Coderformer_video2.mp4" type="video/mp4">
+                            <source src="" type="video/webm">
+                            <img loading="lazy" src="assets/images/blog/UHD_LL_dataset.png" alt="Low-level Vision">
+                        </video>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="space" data-MY="40px"></div>
+                    <div class="r2-area-content">
+                        <div class="r2-area-header">
+                            <div class="r2-area-dot color-llv"></div>
+                            <h2 class="r2-area-title">Low-level Vision</h2>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="space" data-MY="40px"></div>
+                        <p class="r2-area-desc">
+                            We develop algorithms to fundamentally improve image and video quality in degraded conditions. Our work spans a wide spectrum of restoration tasks — from super-resolution and denoising to low-light enhancement, underwater image restoration, and all-in-one degradation removal — with a focus on real-world robustness and perceptual fidelity.
+                        </p>
+                        <div class="r2-keywords">
+                            <span class="r2-kw">Super-Resolution</span>
+                            <span class="r2-kw">Denoising</span>
+                            <span class="r2-kw">Dehazing</span>
+                            <span class="r2-kw">Deraining</span>
+                            <span class="r2-kw">Deblurring</span>
+                            <span class="r2-kw">Face Restoration</span>
+                            <span class="r2-kw">Low-light Enhancement</span>
+                            <span class="r2-kw">Underwater Enhancement</span>
+                            <span class="r2-kw">Color Correction</span>
+                            <span class="r2-kw">All-in-One Restoration</span>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 text-center"><img loading="lazy" src="assets/images/publication/research_entertainment.webp" alt="">
-                            <h6 class="research-title">Entertainment Vision</h6>
+                        <div class="r2-papers-label">Representative Publications</div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-llv">CVPR 2026</span>
+                            <span class="r2-paper-title">DNF-SR: Dual-Input and Negative-Aware Feature Fine-Tuning for Real-World Image Super-Resolution</span>
                         </div>
-                        <div class="col-md-8 research-content">
-                            <p>Entertainment vision focuses on transforming and enhancing digital media for creative applications. Image and video generation bring new content to life, while image editing provides precise control over visual elements. Video inpainting and frame interpolation ensure smooth, seamless motion, enhancing visual flow. Makeup transfer enables realistic virtual makeovers, and image colorization brings black-and-white visuals to vibrant life. Camera control effects add dynamic, cinematic qualities to footage, offering a complete suite of tools for high-quality visual content creation and enhancement. </p>
-                            <p>We focus on the research of image and video generation, image editing, video inpainting, frame interpolation, makeup transfer, image and video colorization, and camera control effects.</p>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-llv">CVPR 2026</span>
+                            <span class="r2-paper-title">Time-Aware One Step Diffusion Network for Real-World Image Super-Resolution</span>
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="space" data-MY="40px"></div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-llv">ICCV 2025</span>
+                            <span class="r2-paper-title">DiT4SR: Taming Diffusion Transformer for Real-World Image Super-Resolution</span>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 text-center"><img loading="lazy" src="assets/images/publication/research_mllm.webp" alt="">
-                            <h6 class="research-title">Multimodal Large Language Models</h6>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-llv">CVPR 2025</span>
+                            <span class="r2-paper-title">Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable</span>
                         </div>
-                        <div class="col-md-8 research-content">
-                            <p>Multimodal large language models enhance a wide range of academic and professional workflows. Model acceleration boosts processing speed, while quality evaluation ensures the reliability of generated content. AI detection measures the involvement of AI in academic work, and paper polishing refines scholarly writing. Automated peer review streamlines the evaluation process, and poster design tools create professional visuals with ease. Office automation improves productivity, and research automation simplifies complex tasks, making the entire academic and professional process more efficient and effective.</p>
-                            <p>We focus on the research of model acceleration, image quality assessment, AI rate detection, paper polishing, AI peer review, automatic poster design, office automation, and research automation.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="space" data-MY="40px"></div>
-                        </div>
+                        <a class="r2-view-all color-llv" href="publications.html#topic-llv">
+                            View All Papers <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </section>
-            <!-- Portfolio Single end-->
 
+            <!-- ===== Computational Imaging ===== -->
+            <span class="r2-anchor" id="ci"></span>
+            <section class="r2-area">
+                <div class="r2-area-inner">
+                    <div class="r2-area-visual">
+                        <video autoplay loop muted playsinline
+                               poster="assets/video/DNF.gif"
+                               style="width:100%; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.10); display:block;">
+                            <source src="assets/video/DNF.gif" type="video/mp4">
+                            <source src="assets/video/DNF.gif" type="video/webm">
+                            <img loading="lazy" src="assets/video/DNF.gif" alt="Computational Imaging">
+                        </video>
+                    </div>
+                    <div class="r2-area-content">
+                        <div class="r2-area-header">
+                            <div class="r2-area-dot color-ci"></div>
+                            <h2 class="r2-area-title">Computational Imaging</h2>
+                        </div>
+                        <p class="r2-area-desc">
+                            We push the boundaries of camera systems through computational methods. Our research addresses the full imaging pipeline — from RAW sensor data processing and aberration correction to HDR reconstruction and under-display restoration — enabling higher-quality visual capture across diverse hardware platforms and challenging environments.
+                        </p>
+                        <div class="r2-keywords">
+                            <span class="r2-kw">RAW Denoising &amp; Enhancement</span>
+                            <span class="r2-kw">HDR Reconstruction</span>
+                            <span class="r2-kw">Aberration Correction</span>
+                            <span class="r2-kw">Camera Calibration</span>
+                            <span class="r2-kw">Flare &amp; Ghost Removal</span>
+                        </div>
+                        <div class="r2-papers-label">Representative Publications</div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-ci">NeurIPS 2025</span>
+                            <span class="r2-paper-title">UltraLED: Learning to See Everything in Ultra-High Dynamic Range Scenes</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-ci">NeurIPS 2024</span>
+                            <span class="r2-paper-title">Lighting Every Darkness in Two Pairs: A Calibration-Free Pipeline for RAW Denoising</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-ci">CVPR 2023</span>
+                            <span class="r2-paper-title">DNF: Decouple and Feedback Network for Seeing in the Dark</span>
+                        </div>
+                        <a class="r2-view-all color-ci" href="publications.html#topic-ci">
+                            View All Papers <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== Image Generation & Editing ===== -->
+            <span class="r2-anchor" id="ige"></span>
+            <section class="r2-area">
+                <div class="r2-area-inner">
+                    <div class="r2-area-visual">
+                        <video autoplay loop muted playsinline
+                               poster="assets/video/inpainting_demo.gif"
+                               style="width:100%; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.10); display:block;">
+                            <source src="assets/video/inpainting_demo.gif" type="video/mp4">
+                            <source src="assets/video/inpainting_demo.gif" type="video/webm">
+                            <img loading="lazy" src="assets/video/inpainting_demo.gif" alt="Image Generation and Editing">
+                        </video>
+                    </div>
+                    <div class="r2-area-content">
+                        <div class="r2-area-header">
+                            <div class="r2-area-dot color-ige"></div>
+                            <h2 class="r2-area-title">Image Generation &amp; Editing</h2>
+                        </div>
+                        <p class="r2-area-desc">
+                            We explore generative models for creative visual content production and precise editing. Our research covers identity-preserving video generation, high-resolution video synthesis, semantic image retouching, and efficient diffusion-based editing — bridging the gap between creative intent and photorealistic output.
+                        </p>
+                        <div class="r2-keywords">
+                            <span class="r2-kw">Video Generation</span>
+                            <span class="r2-kw">Image Editing</span>
+                            <span class="r2-kw">Video Inpainting</span>
+                            <span class="r2-kw">Frame Interpolation</span>
+                            <span class="r2-kw">Image Colorization</span>
+                            <span class="r2-kw">Diffusion Models</span>
+                            <span class="r2-kw">Camera Control</span>
+                        </div>
+                        <div class="r2-papers-label">Representative Publications</div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-ige">CVPR 2026</span>
+                            <span class="r2-paper-title">Stand-In: A Lightweight and Plug-and-Play Identity Control for Video Generation</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-ige">CVPR 2026</span>
+                            <span class="r2-paper-title">YOSE: You Only Select Essential Tokens for Efficient DiT-based Video Object Segmentation</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-ige">AAAI 2026</span>
+                            <span class="r2-paper-title">VTinker: Guided Flow Upsampling and Texture Mapping for High-Resolution Video Generation</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-ige">NeurIPS 2025</span>
+                            <span class="r2-paper-title">DIPO: Dual-State Images Controlled Articulated Object Generation Powered by Diverse Data</span>
+                        </div>
+                        <a class="r2-view-all color-ige" href="publications.html#topic-ige">
+                            View All Papers <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== LLM / VLM / VLA ===== -->
+            <span class="r2-anchor" id="lm"></span>
+            <section class="r2-area">
+                <div class="r2-area-inner">
+                    <div class="r2-area-visual">
+                        <video autoplay loop muted playsinline
+                               poster="assets/images/blog/DetectAnyLLM_logo.webp"
+                               style="width:100%; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.10); display:block;">
+                            <source src="" type="video/mp4">
+                            <source src="" type="video/webm">
+                            <img loading="lazy" src="assets/images/blog/DetectAnyLLM_logo.webp" alt="LLM VLM VLA">
+                        </video>
+                    </div>
+                    <div class="r2-area-content">
+                        <div class="r2-area-header">
+                            <div class="r2-area-dot color-lm"></div>
+                            <h2 class="r2-area-title">LLM / VLM / VLA</h2>
+                        </div>
+                        <p class="r2-area-desc">
+                            We leverage the power of large language and vision-language models to advance image quality assessment, AI-generated content detection, and intelligent visual agents. Our work connects foundation model capabilities with practical imaging applications, enabling smarter, more automated visual workflows.
+                        </p>
+                        <div class="r2-keywords">
+                            <span class="r2-kw">AI-Generated Content Detection</span>
+                            <span class="r2-kw">Visual Agents</span>
+                            <span class="r2-kw">Model Evaluation</span>
+                            <span class="r2-kw">Benchmark</span>
+                            <span class="r2-kw">visual-language-action</span>
+                        </div>
+                        <div class="r2-papers-label">Representative Publications</div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-lm">AAAI 2026</span>
+                            <span class="r2-paper-title">PerTouch: VLM-Driven Agent for Personalized and Semantic Image Retouching</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-lm">AAAI 2026</span>
+                            <span class="r2-paper-title">EvalMuse-40K: A Reliable and Fine-Grained Benchmark with Comprehensive Human Annotations for Text-to-Image Generation Model Evaluation</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-lm">ACM MM 2025</span>
+                            <span class="r2-paper-title">DetectAnyLLM: Towards Generalizable and Robust Detection of Machine-Generated Text</span>
+                        </div>
+                        <a class="r2-view-all color-lm" href="publications.html#topic-lm">
+                            View All Papers <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== Scene Understanding ===== -->
+            <span class="r2-anchor" id="su"></span>
+            <section class="r2-area">
+                <div class="r2-area-inner">
+                    <div class="r2-area-visual">
+                        <video autoplay loop muted playsinline
+                               poster="assets/images/blog/UCIS4K_logo.png"
+                               style="width:100%; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.10); display:block;">
+                            <source src="" type="video/mp4">
+                            <source src="" type="video/webm">
+                            <img loading="lazy" src="assets/images/blog/UCIS4K_logo.png" alt="Scene Understanding">
+                        </video>
+                    </div>
+                    <div class="r2-area-content">
+                        <div class="r2-area-header">
+                            <div class="r2-area-dot color-su"></div>
+                            <h2 class="r2-area-title">Scene Understanding</h2>
+                        </div>
+                        <p class="r2-area-desc">
+                            We tackle high-level visual perception in challenging environments, with a particular focus on underwater scenes. Our research covers object detection, salient object detection, camouflage detection, and instance segmentation — advancing the ability of AI systems to understand complex, real-world visual scenes.
+                        </p>
+                        <div class="r2-keywords">
+                            <span class="r2-kw">Object Detection</span>
+                            <span class="r2-kw">Salient Object Detection</span>
+                            <span class="r2-kw">Camouflage Detection</span>
+                            <span class="r2-kw">Instance Segmentation</span>
+                            <span class="r2-kw">Underwater Vision</span>
+                            <span class="r2-kw">RGB-D Perception</span>
+                        </div>
+                        <div class="r2-papers-label">Representative Publications</div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-su">IEEE TIP 2026</span>
+                            <span class="r2-paper-title">Expose Camouflage in the Water: Underwater Camouflaged Instance Segmentation</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-su">IEEE TIP 2025</span>
+                            <span class="r2-paper-title">Heterogeneous Experts and Hierarchical Perception for Underwater Salient Object Detection</span>
+                        </div>
+                        <a class="r2-view-all color-su" href="publications.html#topic-su">
+                            View All Papers <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 3D ===== -->
+            <span class="r2-anchor" id="3d"></span>
+            <section class="r2-area">
+                <div class="r2-area-inner">
+                    <div class="r2-area-visual">
+                        <video autoplay loop muted playsinline
+                               poster="assets/images/blog/3D-UIR_logo.png"
+                               style="width:100%; border-radius:14px; box-shadow:0 6px 28px rgba(0,0,0,0.10); display:block;">
+                            <source src="assets/video/LE3D_video.mp4" type="video/mp4">
+                            <source src="" type="video/webm">
+                            <img loading="lazy" src="assets/images/blog/3D-UIR_logo.png" alt="3D">
+                        </video>
+                    </div>
+                    <div class="r2-area-content">
+                        <div class="r2-area-header">
+                            <div class="r2-area-dot color-3d"></div>
+                            <h2 class="r2-area-title">3D</h2>
+                        </div>
+                        <p class="r2-area-desc">
+                            We explore 3D scene representation, reconstruction, and understanding. Our research spans 3D Gaussian Splatting for novel-view synthesis and scene reconstruction, depth super-resolution, point cloud robustness, and neural rendering — enabling high-fidelity 3D visual understanding in diverse and challenging scenarios.
+                        </p>
+                        <div class="r2-keywords">
+                            <span class="r2-kw">3D Gaussian Splatting</span>
+                            <span class="r2-kw">Neural Rendering</span>
+                            <span class="r2-kw">Point Cloud</span>
+                            <span class="r2-kw">Novel View Synthesis</span>
+                            <span class="r2-kw">RGB-D</span>
+                        </div>
+                        <div class="r2-papers-label">Representative Publications</div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-3d">IEEE TIP 2026</span>
+                            <span class="r2-paper-title">3D-UIR: 3D Gaussian for Underwater 3D Scene Reconstruction via Physics-Based Appearance-Medium Decoupling</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-3d">ICCV 2025</span>
+                            <span class="r2-paper-title">Joint Semantic and Rendering Enhancements in 3D Gaussian Modeling with Anisotropic Local Encoding</span>
+                        </div>
+                        <div class="r2-paper-item">
+                            <span class="r2-paper-venue color-3d">IEEE TIP 2025</span>
+                            <span class="r2-paper-title">Improving Point Cloud Robustness Through Perturbation Simulation and Distortion-Tolerant Point Cloud Analysis</span>
+                        </div>
+                        <a class="r2-view-all color-3d" href="publications.html#topic-3d">
+                            View All Papers <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
             <!-- Footer-->
             <footer class="footer">
@@ -182,18 +659,18 @@
                             <div class="col-md-12 footer-nav">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="people2.html">People</a></li>
+                                    <li><a href="people.html">People</a></li>
                                     <li><a href="research.html">Research</a></li>
-                                    <li><a href="publications2.html">Publications</a></li>
-                                    <li><a href="joinus2.html">Join Us</a></li>
-                                    <li><a href="achievement.html">Achievement </a></li>
+                                    <li><a href="publications.html">Publications</a></li>
+                                    <li><a href="joinus.html">Join Us</a></li>
+                                    <li><a href="achievement.html">Achievement</a></li>
                                     <li><a href="miscellaneous.html">Miscellaneous</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 footer-image">
-                                <!--img(src="assets/images/logo.jpg" alt="")--><img src="assets/images/" alt="">
+                                <img src="assets/images/" alt="">
                             </div>
                             <div class="col-md-12">
                                 <div class="space" data-MY="30px"></div>
@@ -201,7 +678,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <p> &#960 Research Group Location: Nankai University</p>
+                                <p>&#960; Research Group Location: Nankai University</p>
                             </div>
                             <div class="col-md-12">
                                 <div class="space" data-MY="30px"></div>
@@ -209,7 +686,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <p>Contact :<a href="#"> lichongyi@nankai.edu.cn</a></p>
+                                <p>Contact: <a href="mailto:lichongyi@nankai.edu.cn">lichongyi@nankai.edu.cn</a></p>
                             </div>
                             <div class="col-md-12">
                                 <div class="space" data-MY="40px"></div>
@@ -221,65 +698,44 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="copyright">
-                                    <!--p © 2018 Boomerang, All Rights Reserved. Design with love by #[a(href="#") 2theme]-->
-                                </div>
+                                <div class="copyright"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </footer>
-            <!-- Footer end-->
         </div>
         <!-- Wrapper end-->
+
         <!-- Off canvas-->
         <div class="off-canvas-sidebar">
             <div class="off-canvas-sidebar-wrapper">
                 <div class="off-canvas-header"><a class="off-canvas-close" href="#"><span class="ti-close"></span></a></div>
                 <div class="off-canvas-content">
-                    <!-- Text widget-->
                     <aside class="widget widget-text">
                         <div class="textwidget">
                             <p class="text-center"><img src="assets/images/logo-light-2.webp" alt="" width="80px"></p>
-                            <p class="text-center">See how users experience your website in realtime to see changes.</p>
                         </div>
                     </aside>
-                    <!-- Recent portfolio widget-->
-                    <aside class="widget widget-recent-works">
-                        <ul>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/1.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/2.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/3.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/4.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/5.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/6.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/7.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/8.webp" alt=""></a></li>
-                            <li><a href="#"><img loading="lazy" src="assets/images/widgets/9.webp" alt=""></a></li>
-                        </ul>
-                    </aside>
-                    <!-- Social Icons-->
-                    <ul class="social-icons text-center">
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>
-        <!-- Off canvas end-->
 
-        <!-- To top button--><a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
+        <!-- To top button-->
+        <a class="scroll-top" href="#top"><i class="fas fa-angle-up"></i></a>
 
         <!-- Scripts-->
         <script defer src="assets/js/custom/jquery.min.js"></script>
         <script defer src="assets/js/custom/popper.min.js"></script>
         <script defer src="assets/js/bootstrap/bootstrap.min.js"></script>
-        <!--script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q")-->
         <script defer src="assets/js/custom/plugins.min.js"></script>
         <script defer src="assets/js/custom/custom.min.js"></script>
         <script defer src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
-            <script src="assets/js/custom/pi-loader.js"></script>
+        <script src="assets/js/custom/pi-loader.js"></script>
+
+        <script>
+        // Handle topic filter activation from URL hash
+        // e.g. publications.html#topic-llv will auto-click the LLV button
+        </script>
     </body>
 </html>
