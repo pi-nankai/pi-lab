@@ -107,23 +107,49 @@
 
             .joinus2-overview-grid {
                 display: grid;
-                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+                gap: 34px;
+            }
+
+            .joinus2-overview-top {
+                display: grid;
+                grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
                 gap: 56px;
+                align-items: start;
+            }
+
+            .joinus2-overview-intro {
+                padding-top: 6px;
+            }
+
+            .joinus2-overview-body {
+                display: grid;
+                grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+                gap: 42px;
                 align-items: start;
             }
 
             .joinus2-highlight-list {
                 display: grid;
-                gap: 16px;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px;
             }
 
             .joinus2-highlight {
                 border-left: 3px solid #444;
                 background: #fafafa;
-                padding: 18px 20px;
+                min-height: 100%;
+                padding: 22px 22px;
                 font-size: 15px;
-                line-height: 2;
+                line-height: 1.9;
                 color: #555;
+            }
+
+            .joinus2-overview-text .joinus2-copy:first-child {
+                margin-top: 0;
+            }
+
+            .joinus2-overview-text .joinus2-copy + .joinus2-copy {
+                margin-top: 18px;
             }
 
             .joinus2-card-grid {
@@ -258,11 +284,16 @@
                     font-size: 42px;
                 }
 
-                .joinus2-overview-grid,
+                .joinus2-overview-top,
+                .joinus2-overview-body,
                 .joinus2-application-grid,
                 .joinus2-role {
                     grid-template-columns: 1fr;
                     gap: 28px;
+                }
+
+                .joinus2-highlight-list {
+                    grid-template-columns: 1fr;
                 }
 
                 .joinus2-card-grid {
@@ -360,20 +391,28 @@
             <section class="module joinus2-section">
                 <div class="container">
                     <div class="joinus2-overview-grid">
-                        <div>
-                            <div class="joinus2-eyebrow">Overview</div>
-                            <h2 class="joinus2-title">A research environment built for growth, depth, and collaboration.</h2>
-                            <p class="joinus2-copy">
-                                PI-Lab is interested in building a focused and supportive research environment where members can gradually develop strong technical judgment, research taste, and the ability to work on meaningful problems. We welcome people at different stages who are serious about learning, open to collaboration, and willing to invest in work that can mature into strong academic or professional outcomes.
-                            </p>
-                            <p class="joinus2-copy" style="margin-top: 18px;">
-                                Rather than treating recruitment as a single short-term opportunity, we hope to provide a setting in which members can grow through papers, projects, mentorship, internships, and future study or career paths. The goal is to help each person build a trajectory that fits both their stage and their long-term direction.
-                            </p>
+                        <div class="joinus2-overview-top">
+                            <div>
+                                <div class="joinus2-eyebrow">Overview</div>
+                                <h2 class="joinus2-title">A research environment built for growth, depth, and collaboration.</h2>
+                            </div>
+                            <div class="joinus2-overview-intro">
+                                <p class="joinus2-copy">
+                                    PI-Lab is interested in building a focused and supportive research environment where members can gradually develop strong technical judgment, research taste, and the ability to work on meaningful problems. We welcome people at different stages who are serious about learning, open to collaboration, and willing to invest in work that can mature into strong academic or professional outcomes.
+                                </p>
+                            </div>
                         </div>
-                        <div class="joinus2-highlight-list">
-                            <div class="joinus2-highlight">A clear path from research training to internships, further study, and career development.</div>
-                            <div class="joinus2-highlight">A mentorship culture in which senior members guide junior members through different stages.</div>
-                            <div class="joinus2-highlight">Opportunities for impactful projects, strong publications, and long-term academic growth.</div>
+                        <div class="joinus2-overview-body">
+                            <div class="joinus2-overview-text">
+                                <p class="joinus2-copy">
+                                    Rather than treating recruitment as a single short-term opportunity, we hope to provide a setting in which members can grow through papers, projects, mentorship, internships, and future study or career paths. The goal is to help each person build a trajectory that fits both their stage and their long-term direction.
+                                </p>
+                            </div>
+                            <div class="joinus2-highlight-list">
+                                <div class="joinus2-highlight">A clear path from research training to internships, further study, and career development.</div>
+                                <div class="joinus2-highlight">A mentorship culture in which senior members guide junior members through different stages.</div>
+                                <div class="joinus2-highlight">Opportunities for impactful projects, strong publications, and long-term academic growth.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
