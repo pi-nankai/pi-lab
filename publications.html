@@ -433,7 +433,7 @@
 
             <!-- Count bar -->
             <div class="pub2-count-bar">
-                <span class="pub2-count-text">Showing <strong id="visible-count">69</strong> of <strong>69</strong> papers</span>
+                <span class="pub2-count-text">Showing <strong id="visible-count">0</strong> of <strong id="total-count">0</strong> papers</span>
             </div>
 
             <!-- Papers list -->
@@ -1573,6 +1573,31 @@
             var activeYear = 'all';
             var activeTopic = 'all';
 
+            // Auto-set total count on load
+            var allPapers = document.querySelectorAll('.pub2-paper');
+            var totalEl = document.getElementById('total-count');
+            if (totalEl) totalEl.textContent = allPapers.length;
+
+            // Auto-number all papers sequentially from 1 (based on DOM order)
+            function renumberPapers() {
+                var visiblePapers = document.querySelectorAll('.pub2-paper:not(.hidden)');
+                visiblePapers.forEach(function(p, i) {
+                    var numEl = p.querySelector('.pub2-paper-num');
+                    if (numEl) numEl.textContent = i + 1;
+                });
+            }
+
+            // Auto-update year group badge counts
+            function updateYearCounts() {
+                var yearGroups = document.querySelectorAll('.pub2-year-group');
+                yearGroups.forEach(function(g) {
+                    var yearKey = g.getAttribute('data-year-group');
+                    var visibleInGroup = g.querySelectorAll('.pub2-paper:not(.hidden)').length;
+                    var badge = document.getElementById('count-' + yearKey);
+                    if (badge) badge.textContent = visibleInGroup;
+                });
+            }
+
             function applyFilters() {
                 var papers = document.querySelectorAll('.pub2-paper');
                 var yearGroups = document.querySelectorAll('.pub2-year-group');
@@ -1606,6 +1631,10 @@
 
                 document.getElementById('visible-count').textContent = visibleCount;
                 document.getElementById('no-results').style.display = (visibleCount === 0) ? 'block' : 'none';
+
+                // Auto-renumber visible papers and update year badges
+                renumberPapers();
+                updateYearCounts();
             }
 
             // Year filter
@@ -1646,6 +1675,8 @@
                     }
                 }
             }
+            // Initialize: run on page load
+            applyFilters();
             activateTopicFromHash();
             window.addEventListener('hashchange', activateTopicFromHash);
         })();
