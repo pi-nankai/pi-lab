@@ -1,0 +1,29 @@
+/* Home-page light painting; shared site styles and the archived home are untouched. */
+.pi-homepage .page-loader{display:none!important}
+.pi-home-cover{position:relative;display:flex;align-items:center;isolation:isolate;overflow:hidden;min-height:100vh;min-height:100svh;padding:0;color:#fff;background:#333;letter-spacing:.03125rem;font-size:.9375rem}
+.pi-home-cover .pi-hero-copy{position:relative;inset:auto;z-index:3;height:auto;margin:auto;padding-top:100px;padding-bottom:100px}
+.pi-home-cover .pi-hero-copy>.row{align-items:center}
+.pi-home-cover h1{font-size:clamp(2rem,4.1vw,4rem);font-weight:500;color:inherit}
+.pi-home-cover p{font-size:clamp(.8125rem,1.05vw,.9375rem)}
+.pi-home-cover p,.pi-home-cover p a{color:inherit}
+.pi-home-cover .col-md-12>:last-child{margin-bottom:0}
+.pi-hero-background,.pi-hero-shade,.pi-hero-light-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pi-hero-background{z-index:0;overflow:hidden}
+.pi-hero-background img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 50%;opacity:0;transition:opacity .9s ease}
+.pi-hero-background img.is-active{opacity:1}
+.pi-hero-shade{z-index:1;background:rgba(51,51,51,.6)}
+.pi-hero-light-canvas{z-index:2;display:block}
+.pi-hero-prefix{white-space:nowrap}
+.pi-hero-symbol{display:inline-block;box-sizing:content-box;width:1.171875em;height:.859375em;vertical-align:-.045em;margin:0;padding:0;border:0;border-radius:3px;background:none;color:inherit;font:inherit;line-height:1;cursor:pointer;touch-action:manipulation}
+.pi-hero-symbol svg{display:block;width:100%;height:100%;overflow:visible}
+.pi-hero-symbol:hover svg{filter:drop-shadow(0 0 4px rgba(235,245,255,.28))}
+.pi-hero-symbol.is-arriving svg{filter:drop-shadow(0 0 10px rgba(216,235,255,var(--pi-arrival,0))) drop-shadow(0 0 3px rgba(244,250,255,var(--pi-arrival,0)))}
+.pi-hero-symbol:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.pi-hero-description{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.pi-hero-background-controls{position:absolute;z-index:4;bottom:12px;left:50%;display:flex;transform:translateX(-50%)}
+.pi-backdrop-dot{display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;background:none;color:#fff;cursor:pointer;touch-action:manipulation}
+.pi-backdrop-dot::before{content:"";width:8px;height:8px;border:1px solid currentColor;border-radius:50%;background:transparent}
+.pi-backdrop-dot.is-active::before{background:currentColor}
+.pi-backdrop-dot:focus-visible{outline:2px solid currentColor;outline-offset:-4px;border-radius:6px}
+@media(max-width:767.98px){.pi-home-cover .pi-hero-copy{padding-top:116px;padding-bottom:70px}.pi-home-cover h1{font-size:2rem;line-height:1.25}.pi-home-cover p{font-size:.875rem;line-height:1.8}.pi-home-cover .m-b-20{margin-bottom:16px}.pi-backdrop-dot{width:44px;height:44px}.pi-hero-background-controls{bottom:6px}}
+@media(prefers-reduced-motion:reduce){.pi-hero-background img{transition:none}.pi-hero-symbol svg{filter:none!important}}
