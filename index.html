@@ -26,9 +26,11 @@
         <link href="assets/css/plugins.min.css" rel="stylesheet">
         <!-- Template core CSS-->
         <link href="assets/css/template.css" rel="stylesheet">
-        <link href="assets/css/pi-loader.css" rel="stylesheet">
+        <link rel="preload" as="image" href="assets/images/index1.webp" fetchpriority="high">
+        <link href="assets/css/pi-hero-light.css" rel="stylesheet">
+        <script defer src="assets/js/custom/pi-hero-light.js"></script>
     </head>
-    <body>
+    <body class="pi-homepage">
 
         <!-- Preloader-->
         <div class="page-loader">
@@ -74,22 +76,29 @@
         <!-- Wrapper-->
         <div class="wrapper">
             <!-- Hero-->
-            <section class="module-cover-slides text-center">
+            <section class="pi-home-cover text-center" data-pi-hero>
                 <!--.parallax.text-center.fullscreen.container.text-wrapper-->
-                <div class="container text-wrapper parallax"> 
+                <div class="container text-wrapper pi-hero-copy"> 
                     <!--.row.parallax.text-center.text-wrapper-->
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>&#960: Photography &amp  Imaging </strong></h1>
+                            <h1 class="m-b-20 pi-hero-heading"><strong><span class="pi-hero-prefix"><button type="button" class="pi-hero-symbol" aria-label="π" aria-describedby="pi-replay-description" title="Replay the light animation"><svg viewBox="0 0 150 110" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M 12.98582 32.74161 C 19.06565 12.26389 53.11264 12.26389 73.17605 14.93490 C 95.67139 17.60590 118.77471 14.93490 137.01418 11.37356"/><path d="M 48.24879 14.93490 C 56.15255 42.53530 47.64080 74.58738 33.04923 91.05859 C 27.21261 98.18128 37.30511 99.96195 41.56098 92.83926"/><path d="M 104.79112 15.38007 C 96.03618 42.09013 99.92727 64.79369 100.04886 84.38107 C 100.17046 99.96195 118.16673 99.07161 131.54234 85.71658"/></g></svg></button>:</span> Photography &amp; Imaging</strong></h1>
                             <h1 class="m-b-20"><strong>Research Group </strong></h1>
                             <p class="m-b-40">&#960  Research Group @ Nankai University  <br> &#960 was formed in 2023, with a research focus on low-level vision. The group works closely with <a href="https://www.mmlab-ntu.com/">MMLab@NTU</a> and <a href="https://mmcheng.net/">TMCC@Nankai</a>. The foundation of &#960 can be traced back to the collaboration between Dr. Chongyi and Dr. Chunle during their time as students at Tianjin University, where they experienced memorable moments. &#960 is a new research group and is always looking for motivated Master students, PhD students, postdocs, and research assistants. We are open to collaborating with academia and industry.</p>
                         </div>
                     </div>
                 </div>
-                <ul class="slides-container">
-                    <li data-overlay="0.6"><img src="assets/images/index1.webp" alt=""></li>
-                    <li data-overlay="0.6"><img loading="lazy" src="assets/images/index2.webp" alt=""></li>
-                </ul>
+                <div class="pi-hero-background" aria-hidden="true">
+                    <img class="is-active" src="assets/images/index1.webp" width="1920" height="1200" fetchpriority="high" decoding="async" alt="">
+                    <img data-src="assets/images/index2.webp" width="1920" height="1200" decoding="async" alt="">
+                </div>
+                <div class="pi-hero-shade" aria-hidden="true"></div>
+                <canvas class="pi-hero-light-canvas" aria-hidden="true"></canvas>
+                <span class="pi-hero-description" id="pi-replay-description">Replay the light animation.</span>
+                <div class="pi-hero-background-controls" aria-label="Background photographs">
+                    <button class="pi-backdrop-dot is-active" type="button" aria-label="Show first background photograph" aria-pressed="true"></button>
+                    <button class="pi-backdrop-dot" type="button" aria-label="Show second background photograph" aria-pressed="false"></button>
+                </div>
             </section>
             <!-- Hero end-->
 
@@ -141,8 +150,8 @@
                                                     <li><a href="https://rq-wu.github.io/projects/infinite-world/"><i class="fa fa-home"></i></a></li>
                                                     <!--li: a(href=link3 ) #[i.fab.fa-google]-->
                                                     <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
-                                                    <li><img src="https://img.shields.io/github/stars/MeiGen-AI/Infinite-World?style=social"></li>
-                                                    <li><img src="https://img.shields.io/github/forks/MeiGen-AI/Infinite-World?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/stars/MeiGen-AI/Infinite-World?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/forks/MeiGen-AI/Infinite-World?style=social"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -176,8 +185,8 @@
                                                     <li><a href="https://shh-han.github.io/EvalMuse-project//"><i class="fa fa-home"></i></a></li>
                                                     <!--li: a(href=link3) #[i.fab.fa-google]-->
                                                     <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
-                                                    <li><img src="https://img.shields.io/github/stars/DYEvaLab/EvalMuse?style=social"></li>
-                                                    <li><img src="https://img.shields.io/github/forks/DYEvaLab/EvalMuse?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/stars/DYEvaLab/EvalMuse?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/forks/DYEvaLab/EvalMuse?style=social"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -209,8 +218,8 @@
                                                     <li><a href="https://srameo.github.io/projects/ultraled/"><i class="fa fa-home"></i></a></li>
                                                     <!--li: a(href=link3) #[i.fab.fa-google]-->
                                                     <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
-                                                    <li><img src="https://img.shields.io/github/stars/Srameo/LED?style=social"></li>
-                                                    <li><img src="https://img.shields.io/github/forks/Srameo/LED?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/stars/Srameo/LED?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/forks/Srameo/LED?style=social"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -242,8 +251,8 @@
                                                     <li><a href="https://github.com/WeChatCV/Stand-In"><i class="fa fa-home"></i></a></li>
                                                     <!--li: a(href=link3) #[i.fab.fa-google]-->
                                                     <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
-                                                    <li><img src="https://img.shields.io/github/stars/WeChatCV/Stand-In?style=social"></li>
-                                                    <li><img src="https://img.shields.io/github/forks/WeChatCV/Stand-In?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/stars/WeChatCV/Stand-In?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/forks/WeChatCV/Stand-In?style=social"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -276,8 +285,8 @@
                                                     <li><a href="https://github.com/zty557/TADSR"><i class="fa fa-home"></i></a></li>
                                                     <!--li: a(href=link3) #[i.fab.fa-google]-->
                                                     <!--li: a(href=link2) #[i.fa-brands.fa-github]-->
-                                                    <li><img src="https://img.shields.io/github/stars/zty557/TADSR?style=social"></li>
-                                                    <li><img src="https://img.shields.io/github/forks/zty557/TADSR?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/stars/zty557/TADSR?style=social"></li>
+                                                    <li><img loading="lazy" src="https://img.shields.io/github/forks/zty557/TADSR?style=social"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -387,7 +396,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 footer-image">
-                                <!--img(src="assets/images/logo.jpg" alt="")--><img src="assets/images/" alt="">
+                                <!--img(src="assets/images/logo.jpg" alt="")--><img loading="lazy" src="assets/images/" alt="">
                             </div>
                             <div class="col-md-12">
                                 <div class="space" data-MY="30px"></div>
@@ -434,7 +443,7 @@
                     <!-- Text widget-->
                     <aside class="widget widget-text">
                         <div class="textwidget">
-                            <p class="text-center"><img src="assets/images/logo-light-2.webp" alt="" width="80px"></p>
+                            <p class="text-center"><img loading="lazy" src="assets/images/logo-light-2.webp" alt="" width="80px"></p>
                             <p class="text-center">See how users experience your website in realtime to see changes.</p>
                         </div>
                     </aside>
@@ -474,6 +483,5 @@
         <script defer src="assets/js/custom/plugins.min.js"></script>
         <script defer src="assets/js/custom/custom.min.js"></script>
         <script defer src="https://kit.fontawesome.com/832b134af0.js" crossorigin="anonymous"></script>
-            <script src="assets/js/custom/pi-loader.js"></script>
     </body>
 </html>
